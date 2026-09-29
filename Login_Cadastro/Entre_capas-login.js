@@ -75,7 +75,7 @@ forms.addEventListener("submit", (evento) => {
 
     localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
     alert("Bem-vindo(a), " + usuario.nome + "!");
-    window.location.href = "../Home_Page/Entre_capas.html";
+    window.location.href = "../index.html";
 });
 
 /* ---------- OLHO DA SENHA ---------- */
