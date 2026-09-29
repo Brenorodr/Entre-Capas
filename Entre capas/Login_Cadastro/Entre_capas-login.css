@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap');
+
+
+
+body{
+    margin: 0px auto;
+    background-image: url(https://i.postimg.cc/4y4q22q7/Chat-GPT-Image-9-de-mai-de-2026-17-00-17.png);
+
+}
+
+main{
+    
+    min-height: 75vh;
+    min-width: 175vh;
+    margin: 15vh;
+    display: grid;
+    grid-template-areas: 
+    "login login"
+    "login login"
+    ;
+
+
+
+
+    grid-template-columns: 0.65fr 1.8fr ;
+    grid-template-rows: 1fr ;
+
+}
+
+
+.login{
+    border-radius: 0px 15px 15px 0px;
+    grid-area: login;
+    background-color: rgba(59, 57, 57, 0.8);
+    font-family: poppins;
+    padding: 25px;
+    color: bisque;
+    border-radius: 15px;
+  
+}
+
+
+.login input{
+    font-family:poppins;
+    font-size: 20px;
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    min-height: 50px;
+    color:grey ;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid black;
+    
+}
+
+
+form{
+    border: 2px solid bisque;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+
+#entrar{
+    background-color: #1f1e1e;
+    color: rgb(255, 255, 255);
+    min-width:250px;
+    min-height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-family: poppins;
+    font-size: large;
+    cursor: pointer;
+}
+
+#entrar:hover{
+    background: grey;
+}
+
+.alinhamento{
+    text-align: center;
+}
+
+.container_senha{
+    position: relative;
+    margin: 8px 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.container_senha senha{
+    width: 100%;
+    margin: 8px 0px;
+    padding-right: 50px;
+}
+
+#iconeOlho{
+    position: absolute;
+    right: 30px;
+    top: 32px;
+    color: #555555;
+    cursor: pointer;
+    user-select: none;
+    font-size: 22px;
+}
+
+#iconeOlho:hover {
+    color: #888888; 
+}
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.campo span {
+    font-size: 0.85rem;
+    min-height: 1.1em;
+}
+/* ---- RESPONSIVIDADE ---- */
+@media (max-width: 900px) {
+    main {
+        min-width: 0;
+        width: 90%;
+        margin: 5vh auto;
+    }
+
+    .login {
+        border-radius: 15px;
+        padding: 15px;
+    }
+
+    .login input {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container_senha {
+        right: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        background-size: cover;
+    }
+
+    #entrar {
+        min-width: 0;
+        width: 100%;
+    }
+}
+
+/* LOGOMARCA */
+.logo {
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 10px auto 0;
+    object-fit: contain;
+}

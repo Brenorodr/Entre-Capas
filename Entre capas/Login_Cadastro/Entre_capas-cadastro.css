@@ -1,0 +1,282 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap');
+
+
+
+body{
+    
+    margin: 0px auto;
+    background-image: url(https://i.postimg.cc/4y4q22q7/Chat-GPT-Image-9-de-mai-de-2026-17-00-17.png);
+
+}
+
+main{
+    
+    min-height: 75vh;
+    min-width: 175vh;
+    margin: 15vh;
+    display: grid;
+    grid-template-areas: 
+    "entrar cadastrar"  
+    "entrar cadastrar"
+    ;
+
+
+
+
+    grid-template-columns: 0.65fr 1.8fr ;
+    grid-template-rows: 1fr ;
+
+}
+
+.entrar{
+    font-family:Poppins;
+    grid-area: entrar;
+    background-color:#1f1e1e;
+    border-radius: 15px 0px 0px 15px;
+    white-space:wrap;
+    color:white;
+
+}
+
+.entrar h1,.entrar p,.entrar a{
+    text-align: center;
+}
+
+
+
+
+#button_entrar{
+
+    background:none;
+    border:4px solid white;
+    border-radius: 20px;
+    color:white;
+    font-size: 20px;
+    padding: 10px;
+    min-width: 127px;
+    cursor: pointer;
+    
+    
+}
+
+#button_entrar:hover{
+    background-color: grey;
+}
+
+#sair{
+    max-width: 150px;
+    max-height:150px;
+    box-sizing: border-box;
+    margin: 15px;
+}
+
+.cadastrar{
+    border-radius: 0px 15px 15px 0px;
+    grid-area: cadastrar;
+    background-color: rgba(59, 57, 57, 0.95);
+    font-family: poppins;
+    padding: 25px;
+    text-align: center;
+    color: bisque;
+  
+}
+
+.cadastrar input{
+    font-family:poppins;
+    font-size: 20px;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    min-height: 50px;
+    color:grey ;
+    text-align: center;
+    border-radius: 15px;
+    border: 2px solid black;
+
+}
+
+
+
+form{
+    border: 2px solid bisque;
+    border-radius: 15px;
+    padding: 15px;
+    
+}
+
+
+#cadastrar{
+    background-color: #1f1e1e;
+    color: rgb(255, 255, 255);
+    min-width:250px;
+    min-height: 50px;
+    border: none;
+    border-radius: 15px;
+    font-family: poppins;
+    font-size: large;
+}
+
+#cadastrar:disabled {
+    background-color: #555555;
+    color: #888888;
+    cursor: not-allowed;
+    opacity: 0.6;
+}/*Caso ative a funcionalidade comentada no js*/
+
+#cadastrar:hover:not(:disabled){
+    background: grey;
+}
+
+.container_senha{
+    position: relative;
+    margin: 8px auto;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    
+}
+
+.container_senha input{
+    width: 100%;
+    padding-right: 3px;
+}
+
+#iconeOlho{
+    position: absolute;
+    right: 20px;
+    top: 7px;
+    color: #555555;
+    cursor: pointer;
+    user-select: none;
+    font-size: 22px;
+}
+
+#iconeOlho:hover {
+    color: #888888; 
+}
+
+/* ---- campos do formulário de cadastro ---- */
+#formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+}
+
+.campo input {
+    margin: 0 auto;
+    display: block;
+}
+
+
+.campo span {
+    font-size: 0.85rem;
+    min-height: 1.1em;
+}
+/* ---- RESPONSIVIDADE ---- */
+@media (max-width: 900px) {
+    main {
+        min-width: 0;
+        width: 90%;
+        margin: 5vh auto;
+        grid-template-areas:
+            "entrar"
+            "cadastrar";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .entrar {
+        border-radius: 15px 15px 0px 0px;
+        padding: 15px 0;
+    }
+
+    .cadastrar {
+        border-radius: 0px 0px 15px 15px;
+    }
+
+    .cadastrar input {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .container_senha {
+        right: 0;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 500px) {
+    body {
+        background-size: cover;
+    }
+
+    #sair {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    #cadastrar,
+    #button_entrar {
+        min-width: 0;
+        width: 100%;
+    }
+}
+/* ---- Compactar formulário de cadastro ---- */
+.cadastrar {
+    padding: 15px;
+}
+
+.cadastrar h1 {
+    font-size: 1.4rem;
+    margin: 5px 0 15px 0;
+}
+
+.cadastrar input {
+    min-height: 36px;
+    font-size: 15px;
+}
+
+.campo label {
+    font-size: 0.85rem;
+}
+
+.campo span {
+    font-size: 0.75rem;
+    min-height: 0.9em;
+}
+
+#formulario {
+    gap: 6px;
+}
+
+.campo {
+    gap: 2px;
+}
+
+form {
+    padding: 12px;
+}
+
+#cadastrar {
+    min-height: 40px;
+    margin-top: 8px;
+}
+
+/* LOGOMARCA */
+.logo {
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 10px auto 0;
+    object-fit: contain;
+}

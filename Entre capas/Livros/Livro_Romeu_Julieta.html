@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png">
+
+    <title>Romeu e Julieta | Entre Capas</title>
+
+    <!-- CSS que você já utiliza no site -->
+    <link rel="stylesheet" href="Entre_capas.css">
+
+    <!-- CSS específico desta página -->
+    <link rel="stylesheet" href="livro.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Graduate&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header class="header">
+
+        <div class="header_esquerda">
+
+            <a href="../Home_Page/Entre_capas.html" class="logo_link" title="Voltar para a página inicial">
+                <img
+                    src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png"
+                    alt="Logomarca Entre Capas"
+                    class="logo"
+                >
+
+            <p class="logo_txt">Entre <br> Capas</p>
+            </a>
+
+        </div>
+
+        <form class="container_pesquisa" action="#" method="get">
+
+            <input
+                type="text"
+                placeholder="Pesquise por título, autor ou gênero..."
+                class="barra_pesquisa"
+                id="barra_pesquisa"
+            >
+
+            <button
+                type="button"
+                class="button_pesquisa"
+                id="button_pesquisa"
+                aria-label="Pesquisar"
+            >
+                <span class="material-icons">search</span>
+            </button>
+
+        </form>
+
+        <nav class="nav">
+
+            <a href="Entre_capas.html#livros" class="nav_buttons">
+                Livros
+            </a>
+
+            <a href="forum.html" class="nav_buttons">
+                Fórum
+            </a>
+
+            <a href="Sobre_projeto.html" class="nav_buttons">
+                Sobre
+            </a>
+
+            <div class="container_direita">
+
+                <div class="creditos">
+                    <span class="material-icons" id="diamante">diamond</span>
+                    100,00
+                </div>
+
+                <a href="Entre_capas-cadastro.html" title="Minha conta">
+                    <img
+                        src="https://i.postimg.cc/Qx7YgmC4/sergiosinc-user-icon-2098873-1920.png"
+                        alt="Minha conta"
+                        id="imagem_conta"
+                    >
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTEÚDO DO LIVRO -->
+    <main class="detalhe-livro">
+
+        <!-- CAMINHO DA PÁGINA -->
+        <nav class="breadcrumb" aria-label="Você está aqui">
+
+            <a href="Entre_capas.html">Início</a>
+            <span>›</span>
+
+            <a href="Entre_capas.html#livros">Livros</a>
+            <span>›</span>
+
+            <span aria-current="page">Romeu e Julieta</span>
+
+        </nav>
+
+
+        <!-- INFORMAÇÕES PRINCIPAIS -->
+        <section class="livro-principal">
+
+            <!-- CAPA -->
+            <div class="livro-capa">
+
+                <img
+                    src="https://tocalivros.s3.amazonaws.com/images/audiolivros/350/r/o/romeu-e-julieta-william-shakespeare-1051491.jpg"
+                    alt="Capa do livro Romeu e Julieta"
+                >
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+            <div class="livro-info">
+
+                <span class="genero-livro">Clássicos</span>
+
+                <h1>Romeu e Julieta</h1>
+
+                <p class="autor-livro">William Shakespeare</p>
+
+                <div class="nota-resumo">
+
+                    <span class="estrelas">★★★★☆</span>
+                    <span class="quantidade-avaliacoes">(165)</span>
+
+                </div>
+
+
+                <p class="descricao-livro">
+                    Em Verona, o amor entre Romeu Montecchio e Julieta Capuleto nasce em meio à rivalidade entre suas famílias. Uma história clássica sobre paixão, conflitos e as consequências do ódio.
+                </p>
+
+
+                <!-- DETALHES -->
+                <div class="detalhes-edicao">
+
+                    <div class="detalhe-item">
+
+                        <span class="material-icons">menu_book</span>
+
+                        <div>
+                            <small>Universo</small>
+                            <span>Teatro de Shakespeare</span>
+                        </div>
+
+                    </div>
+
+                    <div class="detalhe-item">
+
+                        <span class="material-icons">calendar_month</span>
+
+                        <div>
+                            <small>Autor</small>
+                            <span>William Shakespeare</span>
+                        </div>
+
+                    </div>
+
+                    <div class="detalhe-item">
+
+                        <span class="material-icons">category</span>
+
+                        <div>
+                            <small>Gênero</small>
+                            <span>Clássicos</span>
+                        </div>
+
+                    </div>
+
+                    <div class="detalhe-item">
+
+                        <span class="material-icons">translate</span>
+
+                        <div>
+                            <small>Idioma</small>
+                            <span>Português</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AÇÕES -->
+                <div class="acoes-livro">
+
+                    <a
+                        href="Entre_capas-cadastro.html"
+                        class="botao-trocar"
+                    >
+                        <span class="material-icons">swap_horiz</span>
+                        Trocar por créditos
+                    </a>
+
+                    <button
+                        type="button"
+                        class="botao-circular"
+                        id="favoritar"
+                        aria-label="Adicionar aos favoritos"
+                        aria-pressed="false"
+                        title="Adicionar aos favoritos"
+                    >
+                        <span class="material-icons">favorite_border</span>
+                    </button>
+
+                    <button
+                        type="button"
+                        class="botao-circular"
+                        id="compartilhar"
+                        aria-label="Copiar link do livro"
+                        title="Copiar link"
+                    >
+                        <span class="material-icons">share</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- AVALIAÇÕES -->
+            <aside class="painel-avaliacoes">
+
+                <h2>Avaliações dos usuários</h2>
+
+                <div class="nota-geral">
+
+                    <strong>4,2</strong>
+
+                    <div>
+                        <span class="estrelas">★★★★☆</span>
+                        <p>(165 avaliações)</p>
+                    </div>
+
+                </div>
+
+
+                <div class="barras-avaliacao">
+
+                    <div class="linha-avaliacao">
+                        <span>5 ★</span>
+                        <div class="barra-fundo">
+                            <div style="width: 62%"></div>
+                        </div>
+                        <span>62%</span>
+                    </div>
+
+                    <div class="linha-avaliacao">
+                        <span>4 ★</span>
+                        <div class="barra-fundo">
+                            <div style="width: 21%"></div>
+                        </div>
+                        <span>21%</span>
+                    </div>
+
+                    <div class="linha-avaliacao">
+                        <span>3 ★</span>
+                        <div class="barra-fundo">
+                            <div style="width: 10%"></div>
+                        </div>
+                        <span>10%</span>
+                    </div>
+
+                    <div class="linha-avaliacao">
+                        <span>2 ★</span>
+                        <div class="barra-fundo">
+                            <div style="width: 5%"></div>
+                        </div>
+                        <span>5%</span>
+                    </div>
+
+                    <div class="linha-avaliacao">
+                        <span>1 ★</span>
+                        <div class="barra-fundo">
+                            <div style="width: 2%"></div>
+                        </div>
+                        <span>2%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="aviso-troca">
+
+                    <span class="material-icons">swap_horiz</span>
+
+                    <div>
+                        <strong>Quer trocar?</strong>
+
+                        <p>
+                            Envie este livro e acumule créditos
+                            para escolher outros títulos!
+                        </p>
+                    </div>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+
+        <!-- PARTE INFERIOR -->
+        <section class="livro-inferior">
+
+            <!-- SINOPSE E COMENTÁRIOS -->
+            <div class="conteudo-abas">
+
+                <div class="abas">
+
+                    <button
+                        type="button"
+                        class="aba ativa"
+                        data-aba="sinopse"
+                    >
+                        Sinopse
+                    </button>
+
+                    <button
+                        type="button"
+                        class="aba"
+                        data-aba="comentarios"
+                    >
+                        Comentários
+                    </button>
+
+                </div>
+
+
+                <div class="conteudo-aba" id="sinopse">
+
+                    <p>Romeu e Julieta pertencem a duas famílias rivais de Verona. Quando os jovens se apaixonam, precisam lidar com a hostilidade que separa seus parentes.</p>
+
+                    <p>A tentativa de viver esse amor em segredo desencadeia uma série de acontecimentos trágicos, tornando a peça uma das histórias mais conhecidas da literatura mundial.</p>
+
+                </div>
+
+
+                <div
+                    class="conteudo-aba"
+                    id="comentarios"
+                    hidden
+                >
+
+                    <p>
+                        Ainda não há comentários nesta página.
+                        Seja o primeiro a compartilhar sua opinião!
+                    </p>
+
+                    <a
+                        href="../login_Cadastro/Entre_capas-cadastro.html"
+                        class="link-comentar"
+                    >
+                        Entre na sua conta para comentar
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMENDAÇÕES -->
+            <aside class="recomendacoes-livros">
+
+                <h2>Você também pode gostar</h2>
+
+                <div class="lista-recomendacoes">
+
+
+                    <a href="Livro_Quarta_Asa.html" class="card-recomendacao">
+
+                        <img src="https://imagens.disal.com.br/produtos/ampliada/9913440.jpg" alt="Capa de Quarta Asa">
+
+                        <strong>Quarta Asa</strong>
+                        <span>Rebecca Yarros</span>
+
+                        <div class="nota-card">
+                            <span class="estrelas">★★★★☆</span>
+                            <small>(206)</small>
+                        </div>
+
+                    </a>
+
+                    <a href="Livro_Olhos_Prata.html" class="card-recomendacao">
+
+                        <img src="https://m.media-amazon.com/images/I/51D7-jlIuzL._SY445_SX342_ML2_.jpg" alt="Capa de Five Nights at Freddy's: Olhos Prateados">
+
+                        <strong>Five Nights at Freddy's: Olhos Prateados</strong>
+                        <span>Scott Cawthon</span>
+
+                        <div class="nota-card">
+                            <span class="estrelas">★★★★☆</span>
+                            <small>(114)</small>
+                        </div>
+
+                    </a>
+
+                    <a href="Livro_Avatar.html" class="card-recomendacao">
+
+                        <img src="https://pdlibrosbra.cdnstatics2.com/usuaris/libros/thumbs/0157c008-2327-412f-8a56-2c88aac6bb10/d_360_620/portada_avatar-a-lenda-de-aang_nickelodeon_202502271413.webp" alt="Capa de Avatar: A Lenda de Aang">
+
+                        <strong>Avatar: A Lenda de Aang</strong>
+                        <span>Gene Luen Yang</span>
+
+                        <div class="nota-card">
+                            <span class="estrelas">★★★★☆</span>
+                            <small>(120)</small>
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </aside>
+
+        </section>
+
+    </main>
+
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <a href="../Home_Page/Entre_capas.html" class="logo_link" title="Voltar para a página inicial">
+
+            <img
+            src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png"
+            alt="Logomarca Entre Capas"
+            class="logo"
+        >
+
+        <p class="logo_txt">Entre <br> Capas</p>
+
+        </a>
+
+        <p>"Espalhando a magia da leitura..."</p>
+
+        <p>2026 Entre Capas &copy;</p>
+
+        <div class="footer-links">
+            <a href="forum.html">Fórum</a>
+            <a href="Entre_capas.html#livros">Livros</a>
+            <a href="Sobre_projeto.html">Sobre</a>
+        </div>
+
+    </footer>
+
+
+    <!-- INTERAÇÕES DA PÁGINA -->
+    <script>
+        // Alternar entre sinopse e comentários
+        const botoesAbas = document.querySelectorAll(".aba");
+        const conteudosAbas = document.querySelectorAll(".conteudo-aba");
+
+        botoesAbas.forEach((botao) => {
+            botao.addEventListener("click", () => {
+                botoesAbas.forEach((aba) => aba.classList.remove("ativa"));
+                conteudosAbas.forEach((conteudo) => conteudo.hidden = true);
+
+                botao.classList.add("ativa");
+
+                const conteudo = document.getElementById(botao.dataset.aba);
+                if (conteudo) conteudo.hidden = false;
+            });
+        });
+
+
+        // Favoritar o livro
+        const botaoFavoritar = document.getElementById("favoritar");
+
+        botaoFavoritar.addEventListener("click", () => {
+            const favorito = botaoFavoritar.getAttribute("aria-pressed") === "true";
+
+            botaoFavoritar.setAttribute("aria-pressed", String(!favorito));
+
+            botaoFavoritar.querySelector(".material-icons").textContent =
+                favorito ? "favorite_border" : "favorite";
+
+            botaoFavoritar.classList.toggle("favoritado", !favorito);
+
+            botaoFavoritar.title = favorito
+                ? "Adicionar aos favoritos"
+                : "Remover dos favoritos";
+        });
+
+
+        // Copiar o endereço da página
+        const botaoCompartilhar = document.getElementById("compartilhar");
+
+        botaoCompartilhar.addEventListener("click", async () => {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+
+                botaoCompartilhar.querySelector(".material-icons").textContent = "check";
+
+                botaoCompartilhar.title = "Link copiado";
+
+                setTimeout(() => {
+                    botaoCompartilhar.querySelector(".material-icons").textContent = "share";
+                    botaoCompartilhar.title = "Copiar link";
+                }, 1500);
+
+            } catch {
+                alert("Não foi possível copiar automaticamente. Copie o endereço do navegador.");
+            }
+        });
+    </script>
+
+</body>
+</html>

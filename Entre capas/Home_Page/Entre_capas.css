@@ -1,0 +1,1423 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rozha+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/*style*/
+
+    /*Normal*/
+    .logo_txt{font-size:1.5rem; font-family:graduate; line-height:1; margin:0 30px 0 10px;}
+    .nav input{font-family: changa;font-size: 1rem;}
+    .main button{font-family: changa;font-size: 1rem; color: var(--cor-texto);}
+    .main h2{font-family: Times New Roman, Times, serif;color: var(--cor-texto);}
+    .menu span{font-family: 'Poppins'1.8rem;color: snow;}
+    .menu button{font-family: changa;}
+   
+    :root{
+        --cor-fundo:#FFFCF2;
+        --cor-texto:#353434;
+    }
+
+    [data-tema="escuro"]{
+        --cor-fundo:black;
+        --cor-texto:snow;}
+
+/*style*/
+header p {
+    font-family:'Poppins' !important;
+    font-weight: 300;
+}
+
+
+body {
+    min-height:100vh;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-areas: 
+    "header"
+    /*"nav"*/
+    "banner"
+    "main"
+    "menu"
+    "footer"
+    ;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows:auto auto auto auto auto;   
+    background-color: var(--cor-fundo);
+}
+.main h2 {
+    font-family: 'Poppins', serif !important;
+    font-size: 35px;
+    font-weight: 300;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1E1E1E;
+    color: white;
+    min-height: 80px;
+    padding: 12px 30px;
+    gap: 30px;
+    box-sizing: border-box;
+}
+
+.header_esquerda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+
+.logo{
+    width:65px;
+    height:65px;
+    object-fit:contain;
+    background-color:none;
+    flex-shrink: 0;
+}
+
+.container_pesquisa {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    width: 430px;
+    height: 36px;
+    padding: 0 10px 0 16px;
+    background-color: #DCCFBE;
+    border-radius: 25px;
+    transition: 0.25s ease;
+}
+
+.container_pesquisa:focus-within {
+    transform: translateX(-50%) scale(1.02);
+    box-shadow:
+        0 0 0 2px #E8622C;
+}
+
+.barra_pesquisa {
+    flex: 1;
+    width: auto;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #353434;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+}
+
+.barra_pesquisa:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+}
+
+ 
+.button_pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.button_pesquisa .material-icons {
+    color: #1E1E1E;
+    font-size: 21px;
+    transition: 0.2s ease;
+}
+
+.button_pesquisa img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.nav a{
+    text-decoration: none;
+    color: #F5F0EB;
+}
+
+
+.nav_buttons {
+    position: relative;
+    color: #F5F0EB;
+    text-decoration: none;
+    padding: 8px 15px;
+    font-family: 'Poppins' !important;
+    font-size: 0.95rem;
+    font-weight: 300;
+    transition: 0.2s ease;
+}
+
+.nav_buttons::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #E8622C;
+    transition: 0.25s ease;
+}
+
+.nav_buttons:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+.nav_buttons:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.nav_buttons:hover{
+    color:#E8622C;
+ 
+}
+
+#imagem_conta{
+    height:43px;
+    width:43px;
+    padding:7px;
+    box-sizing:border-box;
+    background-color:#252525;
+    border-radius:50%;
+    cursor:pointer;
+    flex-shrink: 0;
+}
+
+.container_direita{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-left: 0;
+}
+
+.creditos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 82px;
+    height: 34px;
+    padding: 4px 8px;
+    border: 1px solid #414141;
+    border-radius: 20px;
+    background: #252525;
+    color: #F5F0EB;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+#diamante{
+    font-size:20px;
+    margin-right:4px;
+    max-width:30px;
+    max-height:30px;
+    color: #E8622C;
+}
+
+.banner{
+    position: relative;
+    background-image:url(../IMG/banner.png);
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:center;
+    grid-area:banner;
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.button_banner {
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background-color: #E8622C;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 12px 22px;
+    min-width: 255px;
+    max-width: 90%;
+    height: auto;
+    font-family: 'Poppins';
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+    white-space: nowrap;
+}
+
+.button_banner a {
+    text-decoration: none;
+    color: white;
+}
+
+.button_banner .material-icons {
+    font-size: 22px;
+}
+
+.seta_banner {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    line-height: 15px;
+    margin-left: auto;
+}
+
+.main{
+    text-align: center;
+    display: block;
+    background-color:var(--cor-fundo);
+    grid-area:main ;
+    margin: auto;
+    width: 100%;
+    max-width: 100%;
+}
+
+.main h2 {
+    font-family:graduate;
+    color:var(--cor-texto);
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding: 0 20px;
+    animation: aparecer 0.7 ease forwards;
+}
+
+@keyframes aparecer {
+    from{
+        opacity: 0;
+        transform: translateY(20)
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main h2::before,
+.main h2::after{
+    content:"";
+    height:3px;
+    background-color:#E8622C;
+    flex:1;
+    border-radius:10px;
+}
+
+.scroll_genero{
+    justify-items: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.items_generos{
+    margin: 0 auto;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 1000px;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: visible;
+    gap: 55px;
+    flex: 0 0 auto;
+    padding-top: 10px;
+}
+
+.generos{
+    border:none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-wrap: nowrap;
+    flex-shrink: 0;
+    transition: transform .25s ease;
+}
+
+.generos:hover {
+    transform: translateY(-8px);
+}
+
+.generos:hover .img_generos{
+    transform:scale(1.08);
+    box-shadow: 0 10px 20px rgba(232, 98, 44, .25);
+}
+
+.img_generos{
+    border-radius: 50%;
+    width: 120px;
+    height: 120px; 
+    object-fit: cover;
+    cursor: pointer;
+    transition:transform 0.2s ease;
+}
+
+.scroll_livros{
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1600px;
+    width: 100%;
+    padding: 0 10px;
+}
+
+.items_livros{
+    width: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    max-width:1400px;
+    overflow: visible;
+    gap: 120px;
+    flex: 1 1 auto;
+    min-width: 0;
+    padding-bottom: 15px;
+    
+}
+
+.img_livros{
+    width: 170px;
+    height: 240px;
+    border-radius: 25px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition:transform 0.2s ease;
+}
+
+.img_livros:hover{
+    transform:scale(1.08);
+}
+
+.button_display {
+    display: flex;
+    width: 190px;
+    height: auto;
+    box-sizing: border-box;
+    flex-direction: column;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: flex-start;
+    background: #fffaf5;
+    border: none;
+    border-radius: 20px;
+    padding: 15px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(40px);
+
+    transition:
+    opacity 0.7s ease,
+    transform 0.7s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.button_display.aparecer {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.button_display:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,.12);
+}
+
+.button_display h3 {
+    font-family: 'Poppins';
+    font-size: 14px;
+    margin-bottom: 0px;
+}
+
+
+.titulo_livro{
+    max-width: 170px;
+    padding: 10px 0px 0px 0px;
+    text-align: center;
+    white-space:normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    margin-top: 10px; 
+
+}
+
+.seta{
+    background:none;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.seta img{
+    width:120px;
+    height: 120px;
+}
+
+.items_generos, .items_livros {
+    scrollbar-width: none; 
+    scroll-behavior: smooth;
+}
+
+
+.menu {
+    grid-area: menu;
+    height: 0;
+}
+
+.menu_flutuante {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 9999;
+}
+
+/* BOTÃO REDONDO */
+
+.button_help {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 2px solid #E8622C;
+    background-color: #1E1E1E;
+    cursor: pointer;
+}
+
+.button_help:hover{
+    background-color: #E8622C;
+}
+
+/* PAINEL */
+
+.conteudo_help {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    right: 85px;
+    bottom: 0;
+    width: 290px;
+    max-width: calc(100vw - 40px);
+    padding: 12px;
+    box-sizing: border-box;
+    background-color: #1E1E1E;
+    border: 2px solid #E8622C;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    transform: translateX(10px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
+}
+
+.conteudo_help a {
+    text-decoration: none;
+}
+
+.conteudo_help .material-icons {
+    color: #E8622C;
+    font-size: 21px;
+    flex-shrink: 0;
+}
+
+/* ABRIR */
+
+.menu_flutuante:hover .conteudo_help {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
+/* CABEÇALHO */
+
+.help_cabecalho {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+
+    color: white;
+}
+
+.help_cabecalho .material-icons {
+    color: #E8622C;
+    font-size: 30px;
+}
+
+.help_cabecalho .central_font {
+    font-family: Graduate !important;
+    font-size: 1.35rem;
+    color: white;
+}
+
+
+/* LINHA LARANJA */
+
+.help_linha {
+    width: 100%;
+    height: 2px;
+    background-color: #E8622C;
+    margin: 5px 0;
+}
+
+
+/* ÁREA DOS BOTÕES */
+
+.help_opcoes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.help_opcoes a{
+    text-decoration: none; 
+    color: white;
+}
+
+/* BOTÕES */
+
+.conteudo_help button {
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    background-color: #292929;
+    color: #F5F0EB;
+    border: 1px solid #4a4039;
+    border-radius: 9px;
+    font-family: Changa;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.conteudo_help button:hover {
+    background-color: #E8622C;
+    color: white;
+    transform: translateX(-3px);
+}
+
+
+/* ÍCONES */
+
+.conteudo_help button .material-icons {
+    color: #E8622C;
+    font-size: 22px;
+    flex-shrink: 0;
+}
+
+.conteudo_help button:hover .material-icons,
+.conteudo_help button:hover .help_seta {
+    color: white;
+}
+
+
+/* TEXTO */
+
+.conteudo_help button span:nth-child(2) {
+    flex: 1;
+    text-align: left;
+}
+
+
+/* SETA */
+
+.help_seta {
+    color: #E8622C;
+    font-family: Arial, sans-serif;
+    font-size: 24px;
+    line-height: 1;
+    margin-left: auto;
+}
+
+
+/* ACESSIBILIDADE */
+
+.acess_container {
+    position: relative;
+    width: 100%;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    box-sizing: border-box;
+    background-color: #292929;
+    border: 1px solid #4a4039;
+    border-radius: 9px;
+    color: #F5F0EB;
+    font-family: Changa;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.acess_container .material-icons{
+    color: #E8622C;
+}
+
+.acess_container:hover {
+    background-color: #E8622C;
+}
+
+.acess_block {
+    position: absolute;
+    right: 300px;
+    bottom: 0px;
+    width: 220px;
+    max-width: calc(100vw - 40px);
+    padding: 15px;
+    box-sizing: border-box;
+    background-color: #222222;
+    border: 2px solid #E8622C;
+    border-radius: 12px;
+    z-index: 2000;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(10px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+
+.acess_block.mostrar {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.acess_block button {
+    width: 100%;
+    min-height: 40px;
+    margin:  5px;
+    padding: 7px 10px;
+    border: 2px solid #4a4039;
+    background-color: #292929;
+    color: #F5F0EB;
+    font-family: 'Poppins';
+    font-size: 0.9rem;
+    text-align: left;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+
+#acess_button {
+    transition: 0.2s ease;
+}
+
+#acess_button:hover {
+    background-color: #E8622C;
+    color: white;
+    transform: translateX(-3px);
+}
+
+#acess_button:hover .material-icons,
+#acess_button:hover .help_seta {
+    color: white !important;
+}
+
+
+.acess_block .central_font{
+    display: block;
+    width: 100%;
+    font-family: 'Poppins' !important;
+    font-size: 1.5rem;
+    color: white;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.acess_block .tamanho_fonte{
+    justify-content: center;
+}
+
+
+
+footer {
+    display: flex;
+    align-items: center;
+    grid-area: footer;
+    background-color: #1E1E1E;
+    padding: 20px;
+    gap: 25px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    
+}
+
+footer p {
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 300;
+    margin: 0;
+}
+
+footer span {
+    color: white;
+    font-family: 'Poppins';
+    font-size: 0.95rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.2s ease; 
+}
+
+footer span:hover {
+    color:#E8622C;
+}
+
+.logo_txt{
+    font-family: 'Poppins';
+    font-weight: 300;
+}
+
+.footer-links{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+    margin-right: 120px;
+    flex-wrap: wrap;
+}
+
+.avaliacao {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 3px;
+    width: 100%;
+    margin-top: 0px;
+}
+
+.avaliacao span {
+    font-family: 'Poppins';
+}
+
+
+.estrela {
+    color: #E8622C;
+    font-size: 1.1rem;
+}
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+}
+
+/* ---- RESPONSIVIDADE ---- */
+
+@media (max-width: 900px) {
+
+    #seta3,
+    #seta4 {
+        display: block;
+    }
+
+    .scroll_livros {
+        max-width: 100%;
+    }
+
+    .items_livros {
+        max-width: 700px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 50px;
+    }
+    .container_pesquisa {
+        width: 100%;
+        max-width: 500px;
+    }
+
+    .banner {
+        height: 260px;
+    }
+
+    .seta img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .items_livros {
+        gap: 60px;
+    }
+
+    .items_generos {
+        gap: 35px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header {
+        justify-content: center;
+        text-align: center;
+        padding: 15px 20px;
+    }
+
+    .logo_txt {
+        text-align: center;
+        margin: 5px 0;
+        font-size: 1.3rem;
+    }
+
+    .nav {
+        gap: 15px;
+        padding: 10px 15px;
+    }
+
+    .nav_buttons {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+        margin: 0;
+    }
+
+    .container_direita {
+        gap: 10px;
+    }
+
+    .banner {
+        height: 200px;
+    }
+
+    .button_banner {
+        font-size: 0.85rem;
+        padding: 10px 16px;
+        gap: 8px;
+    }
+
+    .main h2 {
+        font-size: 24px;
+    }
+
+    .seta img {
+        width: 45px;
+        height: 45px;
+    }
+
+    .img_generos {
+        width: 75px;
+        height: 75px;
+    }
+
+    .items_generos {
+        gap: 20px;
+    }
+
+    .items_livros {
+        gap: 25px;
+    }
+
+    .img_livros {
+        width: 130px;
+        height: 185px;
+    }
+
+    .button_display {
+        width: 150px;
+    }
+
+    footer {
+        justify-content: center;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .footer-links {
+        margin-left: 0;
+        justify-content: center;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 400px) {
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logo_txt {
+        font-size: 1.1rem;
+    }
+
+    .banner {
+        height: 170px;
+    }
+
+    .main h2 {
+        font-size: 20px;
+    }
+
+    .seta img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .img_generos {
+        width: 65px;
+        height: 65px;
+    }
+
+    .items_generos {
+        gap: 15px;
+    }
+
+    .items_livros {
+        gap: 15px;
+    }
+
+    .img_livros {
+        width: 110px;
+        height: 155px;
+    }
+
+    .button_display {
+        width: 130px;
+    }
+}
+
+#seta3,
+#seta4 {
+    display: none;
+}
+
+
+.genero-card {
+    display: flex;
+    align-self: center;
+    margin-top: 10px;
+    padding: 5px 12px;
+    background-color: #E8622C;
+    color: white;
+    border-radius: 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* =========================
+   AJUSTES FINAIS RESPONSIVOS
+========================= */
+
+/* TABLETS E CELULARES */
+@media (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* CABEÇALHO */
+    .header {
+        height: auto;
+        min-height: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .header_esquerda {
+        display: flex;
+        align-items: center;
+        min-width: 0;
+        gap: 8px;
+    }
+
+    .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logo_txt {
+        margin: 0;
+        font-size: 1.1rem;
+    }
+
+    /* BARRA DE PESQUISA */
+    .container_pesquisa {
+        position: relative;
+        order: 2;
+        flex: 0 1 500px;
+        width: 100%;
+        max-width: 500px;
+        height: 38px;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    .container_pesquisa:focus-within {
+        transform: none;
+    }
+
+    .barra_pesquisa {
+        min-width: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* NAVEGAÇÃO */
+    .nav {
+        position: relative;
+        top: auto;
+        right: auto;
+        order: 3;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        gap: 12px 20px;
+    }
+
+    .nav_buttons {
+        min-width: 0;
+        padding: 9px 3px;
+        text-align: center;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+
+    /* CRÉDITOS E CONTA */
+    .container_direita {
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        width: 100%;
+        flex: 0 0 100%;
+        margin: 0;
+    }
+
+    .header_usuario {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        flex: 0 0 auto;
+    }
+
+    /* CONTEÚDO PRINCIPAL */
+    .main {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .scroll_genero,
+    .scroll_livros {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    .items_generos,
+    .items_livros {
+        min-width: 0;
+        flex: 1 1 0;
+        justify-content: flex-start;
+        overflow-x: auto;
+    }
+}
+
+/* =========================
+   CELULARES
+========================= */
+@media (max-width: 480px) {
+
+    .header {
+        padding: 12px;
+        gap: 12px;
+    }
+
+    .logo {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo_txt {
+        font-size: 1rem;
+    }
+
+    /* CRÉDITOS */
+    .creditos {
+        width: auto;
+        height: 32px;
+        padding: 4px 7px;
+        font-size: 0.75rem;
+    }
+
+    #imagem_conta {
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+        box-sizing: border-box;
+    }
+
+    /* PESQUISA */
+    .container_pesquisa {
+        height: 38px;
+        padding: 0 10px;
+    }
+
+    .barra_pesquisa {
+        font-size: 0.8rem;
+    }
+
+    /* NAVEGAÇÃO */
+    .nav_buttons {
+        padding: 9px 2px;
+        font-size: 0.8rem;
+    }
+
+    /* BANNER */
+    .banner {
+        height: auto;
+        aspect-ratio: 3 / 1;
+        min-height: 150px;
+        max-height: 190px;
+        background-size: 100% 100%;
+        background-position: center;
+    }
+
+    .button_banner {
+        bottom: 8px;
+        min-width: 0;
+        max-width: 92%;
+        height: auto;
+        padding: 8px 12px;
+        gap: 6px;
+        font-size: 0.75rem;
+        white-space: normal;
+    }
+
+    .button_banner .material-icons {
+        font-size: 17px;
+    }
+
+    /* TÍTULOS */
+    .main h2 {
+        font-size: 1.5rem;
+        gap: 8px;
+        padding: 0 8px;
+    }
+
+    /* CARROSSEL DE GÊNEROS E LIVROS */
+    .scroll_genero,
+    .scroll_livros {
+        gap: 4px;
+        padding: 0 5px;
+    }
+
+    .items_generos {
+        gap: 18px;
+    }
+
+    .img_generos {
+        width: 75px;
+        height: 75px;
+    }
+
+    .items_livros {
+        gap: 15px;
+    }
+
+    .button_display {
+        flex: 0 0 145px;
+        width: 145px;
+        padding: 10px;
+    }
+
+    .img_livros {
+        width: 120px;
+        height: 175px;
+        object-fit: cover;
+    }
+
+    /* SETAS */
+    .seta {
+        flex: 0 0 24px;
+    }
+
+    .seta img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* MENU FLUTUANTE */
+    .menu_flutuante {
+        right: 12px;
+        bottom: 12px;
+    }
+
+    /* RODAPÉ */
+    footer {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .footer-links {
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 1100px) {
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        overflow-x: clip;
+    }
+
+    .header {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .container_pesquisa {
+        min-width: 0;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+    .header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container_pesquisa {
+        position: relative;
+        left: auto;
+        right: auto;
+        order: 2;
+        flex: 0 1 450px;
+        width: 450px;
+        max-width: 100%;
+        margin: 0 auto;
+        transform: none;
+        box-sizing: border-box;
+    }
+
+        .main {
+        width: 92%;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+        .items_generos {
+        gap: 25px;
+    }
+
+    .img_generos {
+        width: 95px;
+        height: 95px;
+    }
+
+    /* LIVROS */
+    .items_livros {
+        gap: 50px;
+    }
+
+    .button_display {
+        flex: 0 0 150px;
+        width: 150px;
+        padding: 10px;
+    }
+
+    .img_livros {
+        width: 130px;
+        height: 190px;
+        object-fit: cover;
+    }
+}
+
+/* =========================
+   LINK DA LOGO (volta para a página inicial)
+========================= */
+
+.logo_link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}

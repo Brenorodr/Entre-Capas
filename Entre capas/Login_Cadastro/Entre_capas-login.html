@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png">
+    <title>Login</title>
+    <link rel="stylesheet" href="Entre_capas-login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+
+    <main>
+
+        <div class="login">
+            <a href="Entre_capas-cadastro.html"><img src="https://i.postimg.cc/cJvR9xZZ/icons8-close-window-50.png" alt="Sair" id="sair" title="Voltar para a página de cadastro."></a>
+            <div class="alinhamento">
+                <a href="../Home_Page/Entre_capas.html" title="Página inicial"><img src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png" alt="Logomarca Entre Capas" class="logo"></a>
+                <h1>ENTRAR</h1>
+                <form id="formulario" novalidate>
+
+                    <div class="campo">
+                        <label for="email">E-MAIL</label>
+                        <input
+                        type="email"
+                        name="E-MAIL"
+                        placeholder="email@exemplo.com"
+                        id="email"
+                        required>
+                        <span id="saida_email"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">SENHA</label>
+                        <div class="container_senha">
+                            <input
+                            type="password"
+                            name="SENHA"
+                            id="senha"
+                            placeholder="Senha"
+                            maxlength="15"
+                            required>
+                            <i class="material-icons" id="iconeOlho">visibility_off</i>
+                        </div>
+                        <span id="saida_senha"></span>
+                    </div>
+
+                    <span id="saida_login"></span>
+
+                    <button type="submit" id="entrar">Entrar</button>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+<script src="Entre_capas-login.js"></script>
+</body>
+
+</html>
