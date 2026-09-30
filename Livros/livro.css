@@ -700,7 +700,7 @@ body {
     flex: 0 0 calc((100% - 36px) / 3);
     min-width: 0;
     padding: 8px;
-    border-radius: 10px;
+    border-radius: 30px;
     color: var(--texto);
     text-decoration: none;
     transition: transform 0.2s ease, background 0.2s ease;
