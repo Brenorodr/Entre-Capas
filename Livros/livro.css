@@ -714,6 +714,7 @@ body {
 .card-recomendacao img {
     display: block;
     width: 100%;
+    border-radius: 10px;
     height: 125px;
     margin-bottom: 12px;
     border-radius: 6px;

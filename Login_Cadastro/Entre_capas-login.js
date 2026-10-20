@@ -1,89 +1,82 @@
-const forms = document.getElementById("formulario");
+const formulario = document.getElementById('formulario');
+const saidaLogin = document.getElementById('saida_login');
+const el = (id) => document.getElementById(id);
 
-/* ---------- REGRAS: cada uma devolve a lista de erros do campo ---------- */
+/* ---------- REGRAS ---------- */
+
 const regras = {
-    email() {
-        const email = document.getElementById("email").value.trim();
-        const erros = [];
-        if (email === "") {
-            erros.push("informe o e-mail");
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            erros.push("formato inválido (ex.: nome@email.com)");
-        }
-        return erros;
+    email: (v) => {
+        if (v.trim() === '') return 'Informe o e-mail.';
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim()) || 'Informe um e-mail válido.';
     },
-
-    senha() {
-        const erros = [];
-        if (document.getElementById("senha").value === "") {
-            erros.push("informe a senha");
-        }
-        return erros;
-    }
+    senha: (v) => v !== '' || 'Informe a senha.'
 };
 
-/* ---------- MOSTRA O RESULTADO NA TELA ---------- */
 function validar(id) {
-    const erros = regras[id]();
-    const saida = document.getElementById("saida_" + id);
+    const campo = el(id).closest('.campo');
+    const resultado = regras[id](el(id).value);
+    const ok = resultado === true;
 
-    if (erros.length === 0) {
-        saida.textContent = "";
-    } else {
-        saida.textContent = "Erro... " + erros.join("; ");
-        saida.style.color = "pink";
-    }
-    return erros;
+    campo.classList.toggle('invalido', !ok);
+    campo.querySelector('.erro').textContent = ok ? '' : resultado;
+    el(id).setAttribute('aria-invalid', ok ? 'false' : 'true');
+
+    return ok;
 }
 
-/* ---------- VALIDAÇÃO AO DIGITAR ---------- */
-forms.addEventListener("input", (evento) => {
-    const id = evento.target.id;
-    if (regras[id]) validar(id);
-    document.getElementById("saida_login").textContent = "";
+Object.keys(regras).forEach((id) => {
+    el(id).addEventListener('blur', () => validar(id));
+    el(id).addEventListener('input', () => {
+        saidaLogin.textContent = '';
+        if (el(id).closest('.campo').classList.contains('invalido')) validar(id);
+    });
 });
+
+
+/* ---------- MOSTRAR / OCULTAR SENHA ---------- */
+
+document.querySelectorAll('.ver_senha').forEach((botao) => {
+    botao.addEventListener('click', () => {
+        const input = el(botao.dataset.alvo);
+        const icone = botao.querySelector('.material-icons');
+        const mostrar = input.type === 'password';
+
+        input.type = mostrar ? 'text' : 'password';
+        icone.textContent = mostrar ? 'visibility' : 'visibility_off';
+        botao.setAttribute('aria-label', mostrar ? 'Ocultar senha' : 'Mostrar senha');
+    });
+});
+
 
 /* ---------- ENVIO ---------- */
-forms.addEventListener("submit", (evento) => {
-    evento.preventDefault(); // impede a página de recarregar (e a senha de ir para a URL)
 
-    const errosEmail = validar("email");
-    const errosSenha = validar("senha");
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+    saidaLogin.classList.remove('ok');
 
-    if (errosEmail.length > 0) {
-        document.getElementById("email").focus();
-        return;
-    }
-    if (errosSenha.length > 0) {
-        document.getElementById("senha").focus();
-        return;
-    }
+    const emailOk = validar('email');
+    const senhaOk = validar('senha');
+
+    if (!emailOk) { el('email').focus(); return; }
+    if (!senhaOk) { el('senha').focus(); return; }
 
     // procura o usuário salvo pela página de cadastro
-    const email = document.getElementById("email").value.trim().toLowerCase();
-    const senha = document.getElementById("senha").value;
-    const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+    const email = el('email').value.trim().toLowerCase();
+    const senha = el('senha').value;
+    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
     const usuario = usuarios.find((u) => u.email === email && u.senha === senha);
 
-    const saidaLogin = document.getElementById("saida_login");
-
     if (!usuario) {
-        saidaLogin.textContent = "E-mail ou senha incorretos.";
-        saidaLogin.style.color = "pink";
+        saidaLogin.textContent = 'E-mail ou senha incorretos.';
         return;
     }
 
-    localStorage.setItem("usuarioLogado", JSON.stringify(usuario));
-    alert("Bem-vindo(a), " + usuario.nome + "!");
-    window.location.href = "../Home_Page/Entre_capas.html";
-});
+    localStorage.setItem('usuarioLogado', JSON.stringify(usuario));
 
-/* ---------- OLHO DA SENHA ---------- */
-const campoSenha = document.getElementById("senha");
-const olho = document.getElementById("iconeOlho");
+    saidaLogin.classList.add('ok');
+    saidaLogin.textContent = 'Bem-vindo(a), ' + usuario.nome.split(' ')[0] + '!';
 
-olho.addEventListener("click", () => {
-    const mostrar = campoSenha.type === "password";
-    campoSenha.type = mostrar ? "text" : "password";
-    olho.textContent = mostrar ? "visibility" : "visibility_off";
+    setTimeout(() => {
+        window.location.href = '../index.html';
+    }, 1000);
 });

@@ -1,61 +1,119 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png">
     <title>Login</title>
+    <!-- estilos compartilhados com o cadastro + ajustes só do login -->
+    <link rel="stylesheet" href="Entre_capas-cadastro.css">
     <link rel="stylesheet" href="Entre_capas-login.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 
 <body>
 
-    <main>
+    <main class="pagina">
 
-        <div class="login">
-            <a href="Entre_capas-cadastro.html"><img src="https://i.postimg.cc/cJvR9xZZ/icons8-close-window-50.png" alt="Sair" id="sair" title="Voltar para a página de cadastro."></a>
-            <div class="alinhamento">
-                <a href="../index.html" title="Página inicial"><img src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png" alt="Logomarca Entre Capas" class="logo"></a>
-                <h1>ENTRAR</h1>
+        <!-- PAINEL ESQUERDO -->
+
+        <aside class="lateral">
+
+            <div class="lateral_topo">
+
+                <a href="../index.html" class="logo_link" title="Página inicial">
+                    <img
+                        src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png"
+                        alt="Logomarca Entre Capas"
+                        class="logo"
+                    >
+                    <p class="logo_txt">
+                        Entre <br> <span>Capas</span>
+                    </p>
+                </a>
+
+                <div class="traco"></div>
+
+                <h2>Que bom te ver <span>de novo</span></h2>
+
+                <p class="lateral_frase">Suas próximas histórias estão esperando.</p>
+
+                <a href="Entre_capas-cadastro.html" class="button_entrar">
+                    Criar conta
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+
+            </div>
+
+            <div class="estante" aria-hidden="true">
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro">
+                    <svg viewBox="0 0 40 80" fill="none" stroke="#b8925f" stroke-width="1.5"><path d="M20 78V30M20 30c-8-2-12-9-12-16 8 1 12 8 12 16zM20 30c8-2 12-9 12-16-8 1-12 8-12 16zM20 52c-7-1-10-7-10-13 7 1 10 6 10 13zM20 52c7-1 10-7 10-13-7 1-10 6-10 13z"/></svg>
+                </div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+            </div>
+
+        </aside>
+
+
+        <!-- FORMULÁRIO -->
+
+        <section class="principal">
+
+            <div class="cartao">
+
+                <h1>Entre na sua conta</h1>
+                <p class="subtitulo">Continue trocando histórias com a comunidade.</p>
+
                 <form id="formulario" novalidate>
 
                     <div class="campo">
-                        <label for="email">E-MAIL</label>
-                        <input
-                        type="email"
-                        name="E-MAIL"
-                        placeholder="email@exemplo.com"
-                        id="email"
-                        required>
-                        <span id="saida_email"></span>
+                        <label for="email">E-mail *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">mail_outline</span>
+                            <input id="email" type="email" placeholder="exemplo@email.com" autocomplete="email" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
                     </div>
 
                     <div class="campo">
-                        <label for="senha">SENHA</label>
-                        <div class="container_senha">
-                            <input
-                            type="password"
-                            name="SENHA"
-                            id="senha"
-                            placeholder="Senha"
-                            maxlength="15"
-                            required>
-                            <i class="material-icons" id="iconeOlho">visibility_off</i>
+                        <label for="senha">Senha *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">lock_outline</span>
+                            <input id="senha" type="password" placeholder="Digite sua senha" autocomplete="current-password" maxlength="15" required>
+                            <button type="button" class="ver_senha" data-alvo="senha" aria-label="Mostrar senha">
+                                <span class="material-icons" aria-hidden="true">visibility_off</span>
+                            </button>
                         </div>
-                        <span id="saida_senha"></span>
+                        <span class="erro" aria-live="polite"></span>
                     </div>
 
-                    <span id="saida_login"></span>
+                    <p id="saida_login" role="alert"></p>
 
-                    <button type="submit" id="entrar">Entrar</button>
+                    <button type="submit" class="button_criar">
+                        Entrar
+                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    </button>
+
+                    <p class="ja_conta">Ainda não tem conta? <a href="Entre_capas-cadastro.html">Criar conta</a></p>
+
                 </form>
+
             </div>
 
-        </div>
+        </section>
+
     </main>
 
-<script src="Entre_capas-login.js"></script>
+    <script src="Entre_capas-login.js"></script>
+
 </body>
 
 </html>

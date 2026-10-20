@@ -1,222 +1,167 @@
-const forms = document.getElementById("formulario");
+const formulario = document.getElementById('formulario');
+const saidaCadastro = document.getElementById('saida_cadastro');
+
+const el = (id) => document.getElementById(id);
+const soNumeros = (v) => v.replace(/\D/g, '');
+
 
 /* ---------- MÁSCARAS ---------- */
+
+function mascaraTelefone(v) {
+    v = soNumeros(v).slice(0, 11);
+    if (v.length > 10) return v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+    if (v.length > 6) return v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+    if (v.length > 2) return v.replace(/^(\d{2})(\d*)/, '($1) $2');
+    return v ? '(' + v : '';
+}
+
+function mascaraCPF(v) {
+    v = soNumeros(v).slice(0, 11);
+    return v
+        .replace(/^(\d{3})(\d)/, '$1.$2')
+        .replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3')
+        .replace(/\.(\d{3})(\d)/, '.$1-$2');
+}
+
+function mascaraData(v) {
+    v = soNumeros(v).slice(0, 8);
+    return v
+        .replace(/^(\d{2})(\d)/, '$1/$2')
+        .replace(/^(\d{2})\/(\d{2})(\d)/, '$1/$2/$3');
+}
+
+function mascaraCEP(v) {
+    v = soNumeros(v).slice(0, 8);
+    return v.replace(/^(\d{5})(\d)/, '$1-$2');
+}
+
 const mascaras = {
-    telefone: v => v.replace(/\D/g, "").slice(0, 11)
-        .replace(/^(\d{2})(\d)/, "($1) $2")
-        .replace(/(\d{5})(\d{1,4})$/, "$1-$2"),
-
-    cpf: v => v.replace(/\D/g, "").slice(0, 11)
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d)/, "$1.$2")
-        .replace(/(\d{3})(\d{1,2})$/, "$1-$2"),
-
-    nascimento: v => v.replace(/\D/g, "").slice(0, 8)
-        .replace(/(\d{2})(\d)/, "$1/$2")
-        .replace(/(\d{2})(\d)/, "$1/$2"),
-
-    cep: v => v.replace(/\D/g, "").slice(0, 8)
-        .replace(/(\d{5})(\d)/, "$1-$2")
+    telefone: mascaraTelefone,
+    cpf: mascaraCPF,
+    nascimento: mascaraData,
+    cep: mascaraCEP
 };
 
-/* ---------- FUNÇÕES AUXILIARES ---------- */
+Object.keys(mascaras).forEach((id) => {
+    el(id).addEventListener('input', (e) => {
+        e.target.value = mascaras[id](e.target.value);
+    });
+});
+
+
+/* ---------- VALIDAÇÕES ---------- */
+
 function cpfValido(cpf) {
-    cpf = cpf.replace(/\D/g, "");
-    if (cpf.length !== 11 || /^(\d)\1{10}$/.test(cpf)) return false;
+    cpf = soNumeros(cpf);
+    if (cpf.length !== 11 || /^(\d)\1+$/.test(cpf)) return false;
 
     for (let t = 9; t < 11; t++) {
         let soma = 0;
-        for (let i = 0; i < t; i++) {
-            soma += Number(cpf[i]) * (t + 1 - i);
-        }
-        let digito = (soma * 10) % 11;
-        if (digito === 10) digito = 0;
-        if (digito !== Number(cpf[t])) return false;
+        for (let i = 0; i < t; i++) soma += cpf[i] * (t + 1 - i);
+        const digito = ((soma * 10) % 11) % 10;
+        if (digito != cpf[t]) return false;
     }
     return true;
 }
 
-function dataValida(texto) {
-    const m = texto.match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+function dataValida(v) {
+    const m = /^(\d{2})\/(\d{2})\/(\d{4})$/.exec(v);
     if (!m) return false;
 
-    const dia = Number(m[1]);
-    const mes = Number(m[2]);
-    const ano = Number(m[3]);
+    const dia = +m[1], mes = +m[2], ano = +m[3];
     const data = new Date(ano, mes - 1, dia);
 
-    if (data.getFullYear() !== ano || data.getMonth() !== mes - 1 || data.getDate() !== dia) {
-        return false;
-    }
-    return ano >= 1900 && data <= new Date();
+    if (data.getFullYear() !== ano || data.getMonth() !== mes - 1 || data.getDate() !== dia) return false;
+    return data <= new Date() && ano >= 1900;
 }
 
-/* ---------- REGRAS: cada uma devolve a lista de erros do campo ---------- */
 const regras = {
-    nome() {
-        const nome = document.getElementById("nome").value.trim();
-        const erros = [];
-        if (nome.length < 2) {
-            erros.push("informe o nome (mínimo 2 letras)");
-        } else if (!/^[A-Za-zÀ-ÿ\s]+$/.test(nome)) {
-            erros.push("use apenas letras e espaços");
-        }
-        return erros;
-    },
-
-    email() {
-        const email = document.getElementById("email").value.trim();
-        const erros = [];
-        if (email === "") {
-            erros.push("informe o e-mail");
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            erros.push("formato inválido (ex.: nome@email.com)");
-        }
-        return erros;
-    },
-
-    telefone() {
-        const erros = [];
-        if (document.getElementById("telefone").value.length !== 15) {
-            erros.push("informe DDD + 9 dígitos, ex.: (24) 99999-9999");
-        }
-        return erros;
-    },
-
-    cpf() {
-        const valor = document.getElementById("cpf").value;
-        const erros = [];
-        if (valor.length !== 14) {
-            erros.push("CPF incompleto");
-        } else if (!cpfValido(valor)) {
-            erros.push("CPF inválido");
-        }
-        return erros;
-    },
-
-    nascimento() {
-        const erros = [];
-        if (!dataValida(document.getElementById("nascimento").value)) {
-            erros.push("data inválida (use dd/mm/aaaa)");
-        }
-        return erros;
-    },
-
-    cep() {
-        const erros = [];
-        if (document.getElementById("cep").value.length !== 9) {
-            erros.push("CEP incompleto (00000-000)");
-        }
-        return erros;
-    },
-
-    senha() {
-        const senha = document.getElementById("senha").value;
-        const erros = [];
-        if (senha.length < 8 || senha.length > 15) erros.push("de 8 a 15 caracteres");
-        if (!/[0-9]/.test(senha)) erros.push("falta um número");
-        if (!/[a-z]/.test(senha)) erros.push("falta uma letra minúscula");
-        if (!/[A-Z]/.test(senha)) erros.push("falta uma letra maiúscula");
-        if (!/[\W_]/.test(senha)) erros.push("falta um símbolo");
-        return erros;
-    },
-
-    confirmar_senha() {
-        const senha = document.getElementById("senha").value;
-        const confirmacao = document.getElementById("confirmar_senha").value;
-        const erros = [];
-        if (confirmacao === "") {
-            erros.push("confirme a senha");
-        } else if (confirmacao !== senha) {
-            erros.push("as senhas não coincidem");
-        }
-        return erros;
-    }
+    nome: (v) => (/^[A-Za-zÀ-ÿ\s]+$/.test(v.trim()) && v.trim().split(/\s+/).length >= 2) || 'Informe nome e sobrenome, só com letras.',
+    email: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) || 'Informe um e-mail válido.',
+    telefone: (v) => [10, 11].includes(soNumeros(v).length) || 'Informe um telefone com DDD.',
+    cpf: (v) => cpfValido(v) || 'CPF inválido.',
+    nascimento: (v) => dataValida(v) || 'Use o formato dd/mm/aaaa.',
+    cep: (v) => soNumeros(v).length === 8 || 'O CEP deve ter 8 dígitos.',
+    senha: (v) => (v.length >= 8 && v.length <= 15 && /[0-9]/.test(v) && /[a-z]/.test(v) && /[A-Z]/.test(v) && /[\W_]/.test(v)) || 'Use de 8 a 15 caracteres, com maiúscula, minúscula, número e símbolo.',
+    confirmar: (v) => v === el('senha').value || 'As senhas não coincidem.'
 };
 
-/* ---------- MOSTRA O RESULTADO NA TELA ---------- */
 function validar(id) {
-    const erros = regras[id]();
-    const saida = document.getElementById("saida_" + id);
+    const campo = el(id).closest('.campo');
+    const resultado = regras[id](el(id).value);
+    const ok = resultado === true;
 
-    if (erros.length === 0) {
-        saida.textContent = "Válido";
-        saida.style.color = "lightgreen";
-    } else {
-        saida.textContent = "Erro... " + erros.join("; ");
-        saida.style.color = "pink";
-    }
-    return erros;
+    campo.classList.toggle('invalido', !ok);
+    campo.querySelector('.erro').textContent = ok ? '' : resultado;
+    el(id).setAttribute('aria-invalid', ok ? 'false' : 'true');
+
+    return ok;
 }
 
-/* ---------- VALIDAÇÃO AO DIGITAR (só o campo que mudou) ---------- */
-forms.addEventListener("input", (evento) => {
-    const id = evento.target.id;
-    if (!regras[id]) return;
-
-    if (mascaras[id]) {
-        evento.target.value = mascaras[id](evento.target.value);
-    }
-
-    validar(id);
-
-    // se mexeu na senha e a confirmação já foi preenchida, revalida a confirmação
-    if (id === "senha" && document.getElementById("confirmar_senha").value !== "") {
-        validar("confirmar_senha");
-    }
+Object.keys(regras).forEach((id) => {
+    el(id).addEventListener('blur', () => validar(id));
+    el(id).addEventListener('input', () => {
+        if (el(id).closest('.campo').classList.contains('invalido')) validar(id);
+    });
 });
 
-/* ---------- ENVIO ---------- */
-forms.addEventListener("submit", (evento) => {
-    evento.preventDefault();
 
-    let primeiroInvalido = null;
+/* ---------- MOSTRAR / OCULTAR SENHA ---------- */
+
+document.querySelectorAll('.ver_senha').forEach((botao) => {
+    botao.addEventListener('click', () => {
+        const input = el(botao.dataset.alvo);
+        const icone = botao.querySelector('.material-icons');
+        const mostrar = input.type === 'password';
+
+        input.type = mostrar ? 'text' : 'password';
+        icone.textContent = mostrar ? 'visibility' : 'visibility_off';
+        botao.setAttribute('aria-label', mostrar ? 'Ocultar senha' : 'Mostrar senha');
+    });
+});
+
+
+/* ---------- ENVIO ---------- */
+
+formulario.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let primeiroErro = null;
     Object.keys(regras).forEach((id) => {
-        const erros = validar(id);
-        if (erros.length > 0 && primeiroInvalido === null) {
-            primeiroInvalido = id;
-        }
+        if (!validar(id) && !primeiroErro) primeiroErro = el(id);
     });
 
-    if (primeiroInvalido !== null) {
-        document.getElementById(primeiroInvalido).focus();
+    if (primeiroErro) {
+        primeiroErro.focus();
         return;
     }
 
     const usuario = {
-        nome: document.getElementById("nome").value.trim(),
-        email: document.getElementById("email").value.trim().toLowerCase(),
-        telefone: document.getElementById("telefone").value,
-        cpf: document.getElementById("cpf").value,
-        nascimento: document.getElementById("nascimento").value,
-        cep: document.getElementById("cep").value,
-        senha: document.getElementById("senha").value,
+        nome: el('nome').value.trim(),
+        email: el('email').value.trim().toLowerCase(),
+        telefone: el('telefone').value,
+        cpf: el('cpf').value,
+        nascimento: el('nascimento').value,
+        cep: el('cep').value,
+        senha: el('senha').value,
         coins: 0
     };
 
-    const usuarios = JSON.parse(localStorage.getItem("usuarios") || "[]");
+    const usuarios = JSON.parse(localStorage.getItem('usuarios') || '[]');
 
     if (usuarios.some((u) => u.email === usuario.email)) {
-        const saida = document.getElementById("saida_email");
-        saida.textContent = "Erro... este e-mail já está cadastrado";
-        saida.style.color = "pink";
-        document.getElementById("email").focus();
+        const campo = el('email').closest('.campo');
+        campo.classList.add('invalido');
+        campo.querySelector('.erro').textContent = 'Este e-mail já está cadastrado.';
+        el('email').focus();
         return;
     }
 
     usuarios.push(usuario);
-    localStorage.setItem("usuarios", JSON.stringify(usuarios));
+    localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-    alert("Cadastro realizado com sucesso!");
-    window.location.href = "Entre_capas-login.html";
-});
-
-/* ---------- OLHO DA SENHA ---------- */
-const campoSenha = document.getElementById("senha");
-const olho = document.getElementById("iconeOlho");
-
-olho.addEventListener("click", () => {
-    const mostrar = campoSenha.type === "password";
-    campoSenha.type = mostrar ? "text" : "password";
-    olho.textContent = mostrar ? "visibility" : "visibility_off";
+    saidaCadastro.textContent = 'Conta criada com sucesso! Redirecionando para o login...';
+    setTimeout(() => {
+        window.location.href = 'Entre_capas-login.html';
+    }, 1500);
 });

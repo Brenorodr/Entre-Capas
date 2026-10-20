@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,82 +12,165 @@
 
 <body>
 
-    <main>
+    <main class="pagina">
 
-        <div class="entrar">
-            <a href="../index.html"><img src="https://i.postimg.cc/cJvR9xZZ/icons8-close-window-50.png" alt="Sair" id="sair" title="Voltar para a página inicial"></a>
-            <a href="../index.html" title="Página inicial"><img src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png" alt="Logomarca Entre Capas" class="logo"></a>
-            <h1>Bem-vindo ao Entre Capas</h1>
-            <p>Acesse sua conta</p>
-            <a href="Entre_capas-login.html"><pre><button id="button_entrar" title="Entrar na conta">ENTRAR</button></pre></a>
-        </div>
+        <!-- PAINEL ESQUERDO -->
 
-        <div class="cadastrar">
+        <aside class="lateral">
 
-            <h1>CRIE SUA CONTA</h1>
+            <div class="lateral_topo">
 
-            <form id="formulario" novalidate>
+                <a href="../index.html" class="logo_link" title="Página inicial">
+                    <img
+                        src="https://i.postimg.cc/NMbBjb8j/Captura-de-tela-2026-05-02-193618.png"
+                        alt="Logomarca Entre Capas"
+                        class="logo"
+                    >
+                    <p class="logo_txt">
+                        Entre <br> <span>Capas</span>
+                    </p>
+                </a>
 
-                <div class="campo">
-                    <label for="nome">NOME</label>
-                    <input type="text" name="NOME" id="nome" placeholder="Nome completo" maxlength="60" required>
-                    <span id="saida_nome"></span>
+                <div class="traco"></div>
+
+                <h2>Bem-vindo ao <span>Entre Capas</span></h2>
+
+                <p class="lateral_frase">Troque histórias. Descubra novos mundos.</p>
+
+                <a href="Entre_capas-login.html" class="button_entrar">
+                    Entrar
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+
+            </div>
+
+            <div class="estante" aria-hidden="true">
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro">
+                    <svg viewBox="0 0 40 80" fill="none" stroke="#b8925f" stroke-width="1.5"><path d="M20 78V30M20 30c-8-2-12-9-12-16 8 1 12 8 12 16zM20 30c8-2 12-9 12-16-8 1-12 8-12 16zM20 52c-7-1-10-7-10-13 7 1 10 6 10 13zM20 52c7-1 10-7 10-13-7 1-10 6-10 13z"/></svg>
                 </div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+            </div>
 
-                <div class="campo">
-                    <label for="email">E-MAIL</label>
-                    <input type="email" name="E-MAIL" id="email" placeholder="email@exemplo.com" required>
-                    <span id="saida_email"></span>
-                </div>
+        </aside>
 
-                <div class="campo">
-                    <label for="telefone">TELEFONE</label>
-                    <input type="tel" name="TELEFONE" id="telefone" placeholder="(00) 00000-0000" maxlength="15" required>
-                    <span id="saida_telefone"></span>
-                </div>
 
-                <div class="campo">
-                    <label for="cpf">CPF</label>
-                    <input type="text" name="CPF" id="cpf" placeholder="000.000.000-00" maxlength="14" inputmode="numeric" required>
-                    <span id="saida_cpf"></span>
-                </div>
+        <!-- FORMULÁRIO -->
 
-                <div class="campo">
-                    <label for="nascimento">DATA DE NASCIMENTO</label>
-                    <input type="text" name="NASCIMENTO" id="nascimento" placeholder="dd/mm/aaaa" maxlength="10" inputmode="numeric" required>
-                    <span id="saida_nascimento"></span>
-                </div>
+        <section class="principal">
 
-                <div class="campo">
-                    <label for="cep">CEP</label>
-                    <input type="text" name="CEP" id="cep" placeholder="00000-000" maxlength="9" inputmode="numeric" required>
-                    <span id="saida_cep"></span>
-                </div>
+            <div class="cartao">
 
-                <div class="campo">
-                    <label for="senha">SENHA</label>
-                    <div class="container_senha">
-                        <input type="password" name="SENHA" id="senha" placeholder="Senha" maxlength="15" required
-                        title="De 8 a 15 caracteres, com 1 maiúscula, 1 minúscula, 1 número e 1 símbolo (ex: @, #, $, _).">
-                        <i class="material-icons" id="iconeOlho">visibility_off</i>
+                <h1>Crie sua conta</h1>
+                <p class="subtitulo">Faça parte da nossa comunidade de leitores.</p>
+
+                <form id="formulario" novalidate>
+
+                    <div class="campo">
+                        <label for="nome">Nome completo *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">person_outline</span>
+                            <input id="nome" type="text" placeholder="Digite seu nome completo" autocomplete="name" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
                     </div>
-                    <span id="saida_senha"></span>
-                </div>
 
-                <div class="campo">
-                    <label for="confirmar_senha">CONFIRMAR SENHA</label>
-                    <input type="password" name="CONFIRMAR_SENHA" id="confirmar_senha" placeholder="Repita a senha" maxlength="15" required>
-                    <span id="saida_confirmar_senha"></span>
-                </div>
+                    <div class="campo">
+                        <label for="email">E-mail *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">mail_outline</span>
+                            <input id="email" type="email" placeholder="exemplo@email.com" autocomplete="email" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
 
-                <button type="submit" id="cadastrar">Cadastrar</button>
+                    <div class="campo">
+                        <label for="telefone">Telefone *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">phone</span>
+                            <input id="telefone" type="tel" inputmode="numeric" placeholder="(00) 0000-0000" autocomplete="tel" maxlength="15" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
 
-            </form>
+                    <div class="campo">
+                        <label for="cpf">CPF *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">badge</span>
+                            <input id="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
 
-        </div>
+                    <div class="campo">
+                        <label for="nascimento">Data de nascimento *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">calendar_today</span>
+                            <input id="nascimento" type="text" inputmode="numeric" placeholder="dd/mm/aaaa" autocomplete="bday" maxlength="10" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cep">CEP *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">location_on</span>
+                            <input id="cep" type="text" inputmode="numeric" placeholder="00000-000" autocomplete="postal-code" maxlength="9" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">Senha *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">lock_outline</span>
+                            <input id="senha" type="password" placeholder="Digite sua senha" autocomplete="new-password" maxlength="15" required title="De 8 a 15 caracteres, com 1 maiúscula, 1 minúscula, 1 número e 1 símbolo (ex: @, #, $, _)">
+                            <button type="button" class="ver_senha" data-alvo="senha" aria-label="Mostrar senha">
+                                <span class="material-icons" aria-hidden="true">visibility_off</span>
+                            </button>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmar">Confirmar senha *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">lock_outline</span>
+                            <input id="confirmar" type="password" placeholder="Repita a senha" autocomplete="new-password" maxlength="15" required>
+                            <button type="button" class="ver_senha" data-alvo="confirmar" aria-label="Mostrar senha">
+                                <span class="material-icons" aria-hidden="true">visibility_off</span>
+                            </button>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <button type="submit" class="button_criar">
+                        Criar conta
+                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    </button>
+
+                    <p class="nota">Ao criar sua conta, você poderá participar das trocas solidárias.</p>
+
+                    <p id="saida_cadastro" role="status"></p>
+
+                    <p class="ja_conta">Já tem uma conta? <a href="Entre_capas-login.html">Entrar</a></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
     </main>
 
-<script src="Entre_capas-cadastro.js"></script>
+    <script src="Entre_capas-cadastro.js"></script>
+
 </body>
 
 </html>
