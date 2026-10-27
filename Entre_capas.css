@@ -866,247 +866,324 @@ footer span:hover {
     direction: ltr;
 }
 
-/* ---- RESPONSIVIDADE ---- */
 
-@media (max-width: 900px) {
+/* ========================================
+   CABEÇALHO — ENTRE CAPAS
+   Responsivo para desktop, tablet e celular
+======================================== */
 
-    #seta3,
-    #seta4 {
-        display: block;
-    }
+.header {
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 30px;
 
-    .scroll_livros {
-        max-width: 100%;
-    }
+    width: 100%;
+    min-height: 80px;
+    padding: 12px 30px;
 
-    .items_livros {
-        max-width: 700px;
-        overflow-x: auto;
-        justify-content: flex-start;
-        gap: 50px;
-    }
-    .container_pesquisa {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .banner {
-        height: 260px;
-    }
-
-    .seta img {
-        width: 70px;
-        height: 70px;
-    }
-
-    .items_livros {
-        gap: 60px;
-    }
-
-    .items_generos {
-        gap: 35px;
-    }
+    background-color: #1E1E1E;
+    color: white;
+    box-sizing: border-box;
 }
 
-@media (max-width: 600px) {
-    .header {
-        justify-content: center;
-        text-align: center;
-        padding: 15px 20px;
-    }
+/* Logo e nome */
 
-    .logo_txt {
-        text-align: center;
-        margin: 5px 0;
-        font-size: 1.3rem;
+.header_esquerda {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logo_link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.header .logo {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.header .logo_txt {
+    margin: 0 15px 0 0;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+
+    color: white;
+}
+
+/* Barra de pesquisa */
+
+.container_pesquisa {
+    position: static;
+
+    display: flex;
+    align-items: center;
+    flex: 1 1 250px;
+
+    width: auto;
+    max-width: 430px;
+    min-width: 0;
+    height: 36px;
+
+    margin: 0;
+    padding: 0 10px 0 16px;
+
+    background-color: #DCCFBE;
+    border-radius: 25px;
+    box-sizing: border-box;
+
+    transition: box-shadow 0.25s ease,
+                transform 0.25s ease;
+}
+
+.container_pesquisa:focus-within {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 2px #E8622C;
+}
+
+.barra_pesquisa {
+    flex: 1;
+    min-width: 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+    color: #353434;
+}
+
+.button_pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.button_pesquisa i {
+    color: #353434;
+}
+
+/* Navegação */
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    flex-shrink: 0;
+}
+
+.nav_buttons {
+    position: relative;
+
+    padding: 8px 15px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav_buttons::after {
+    content: "";
+    position: absolute;
+
+    left: 50%;
+    bottom: 2px;
+
+    width: 0;
+    height: 2px;
+
+    background-color: #E8622C;
+    transition: width 0.25s ease,
+                left 0.25s ease;
+}
+
+.nav_buttons:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+/* Créditos e conta */
+
+.container_direita {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.creditos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 82px;
+    height: 34px;
+
+    background-color: #353434;
+    border-radius: 20px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    color: white;
+
+    white-space: nowrap;
+}
+
+#diamante {
+    margin-right: 4px;
+    color: #E8622C;
+    font-size: 20px;
+}
+
+#imagem_conta {
+    width: 43px;
+    height: 43px;
+    padding: 7px;
+
+    border-radius: 50%;
+    object-fit: cover;
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   NOTEBOOKS E TELAS MÉDIAS
+   Até 1200px
+======================================== */
+
+@media (max-width: 1200px) {
+    .header {
+        gap: 15px;
+        padding: 12px 20px;
     }
 
     .nav {
-        gap: 15px;
-        padding: 10px 15px;
-    }
-
-    .nav_buttons {
-        font-size: 0.85rem;
-        padding: 6px 10px;
-        margin: 0;
-    }
-
-    .container_direita {
-        gap: 10px;
-    }
-
-    .banner {
-        height: 200px;
-    }
-
-    .button_banner {
-        font-size: 0.85rem;
-        padding: 10px 16px;
         gap: 8px;
     }
 
-    .main h2 {
-        font-size: 24px;
+    .nav_buttons {
+        padding: 8px 10px;
+        font-size: 0.9rem;
     }
 
-    .seta img {
-        width: 45px;
-        height: 45px;
+    .container_pesquisa {
+        flex-basis: 200px;
     }
 
-    .img_generos {
-        width: 75px;
-        height: 75px;
-    }
-
-    .items_generos {
-        gap: 20px;
-    }
-
-    .items_livros {
-        gap: 25px;
-    }
-
-    .img_livros {
-        width: 130px;
-        height: 185px;
-    }
-
-    .button_display {
-        width: 150px;
-    }
-
-    footer {
-        justify-content: center;
-        text-align: center;
-        gap: 10px;
-    }
-
-    .footer-links {
-        margin-left: 0;
-        justify-content: center;
-        gap: 15px;
+    .header .logo_txt {
+        margin-right: 5px;
     }
 }
 
-@media (max-width: 400px) {
-    .logo {
+
+/* ========================================
+   TABLETS E TELAS MAIS ESTREITAS
+   Até 1050px
+======================================== */
+
+@media (max-width: 1050px) {
+    .header {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px 20px;
+    }
+
+    .header_esquerda {
+        order: 1;
+    }
+
+    .nav {
+        order: 2;
+    }
+
+    .container_direita {
+        order: 3;
+    }
+
+    .container_pesquisa {
+        order: 4;
+
+        flex: 1 1 100%;
+        width: 100%;
+        max-width: none;
+        height: 38px;
+    }
+
+    .container_pesquisa:focus-within {
+        transform: none;
+    }
+}
+
+
+/* ========================================
+   CELULARES
+   Até 600px
+======================================== */
+
+@media (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: center;
+
+        gap: 14px;
+        padding: 15px 16px;
+        text-align: center;
+    }
+
+    .header_esquerda {
+        order: 1;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .header .logo {
         width: 50px;
         height: 50px;
     }
 
-    .logo_txt {
-        font-size: 1.1rem;
-    }
-
-    .banner {
-        height: 170px;
-    }
-
-    .main h2 {
-        font-size: 20px;
-    }
-
-    .seta img {
-        width: 36px;
-        height: 36px;
-    }
-
-    .img_generos {
-        width: 65px;
-        height: 65px;
-    }
-
-    .items_generos {
-        gap: 15px;
-    }
-
-    .items_livros {
-        gap: 15px;
-    }
-
-    .img_livros {
-        width: 110px;
-        height: 155px;
-    }
-
-    .button_display {
-        width: 130px;
-    }
-}
-
-#seta3,
-#seta4 {
-    display: none;
-}
-
-
-.genero-card {
-    display: flex;
-    align-self: center;
-    margin-top: 10px;
-    padding: 5px 12px;
-    background-color: #E8622C;
-    color: white;
-    border-radius: 20px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 400;
-    line-height: 1.4;
-}
-
-/* =========================
-   AJUSTES FINAIS RESPONSIVOS
-========================= */
-
-/* TABLETS E CELULARES */
-@media (max-width: 768px) {
-
-    body {
-        overflow-x: hidden;
-    }
-
-    /* CABEÇALHO */
-    .header {
-        height: auto;
-        min-height: 0;
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        padding: 15px;
-        box-sizing: border-box;
-    }
-
-    .header_esquerda {
-        display: flex;
-        align-items: center;
-        min-width: 0;
-        gap: 8px;
-    }
-
-    .logo {
-        width: 45px;
-        height: 45px;
-    }
-
-    .logo_txt {
+    .header .logo_txt {
         margin: 0;
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
 
-    /* BARRA DE PESQUISA */
     .container_pesquisa {
-        position: relative;
         order: 2;
-        flex: 0 1 500px;
+
+        flex: 0 1 auto;
         width: 100%;
         max-width: 500px;
         height: 38px;
-        margin: 0 auto;
-        box-sizing: border-box;
+
+        margin: 0;
     }
 
     .container_pesquisa:focus-within {
@@ -1114,310 +1191,100 @@ footer span:hover {
     }
 
     .barra_pesquisa {
-        min-width: 0;
-        width: 100%;
-        box-sizing: border-box;
+        font-size: 0.8rem;
     }
 
-    /* NAVEGAÇÃO */
     .nav {
-        position: relative;
-        top: auto;
-        right: auto;
         order: 3;
+
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
         align-items: center;
+        justify-content: center;
+
         width: 100%;
-        height: auto;
-        margin: 0;
-        gap: 12px 20px;
+        gap: 4px;
     }
 
     .nav_buttons {
-        min-width: 0;
-        padding: 9px 3px;
-        text-align: center;
+        padding: 7px 8px;
         font-size: 0.85rem;
-        white-space: nowrap;
     }
 
-    /* CRÉDITOS E CONTA */
     .container_direita {
-        position: static;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 15px;
-        width: 100%;
-        flex: 0 0 100%;
-        margin: 0;
-    }
+        order: 4;
 
-    .header_usuario {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: auto;
-        flex: 0 0 auto;
-    }
 
-    /* CONTEÚDO PRINCIPAL */
-    .main {
         width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-    .scroll_genero,
-    .scroll_livros {
-        width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-    .items_generos,
-    .items_livros {
-        min-width: 0;
-        flex: 1 1 0;
-        justify-content: flex-start;
-        overflow-x: auto;
-    }
-}
-
-/* =========================
-   CELULARES
-========================= */
-@media (max-width: 480px) {
-
-    .header {
-        padding: 12px;
         gap: 12px;
     }
 
-    .logo {
-        width: 40px;
-        height: 40px;
-    }
-
-    .logo_txt {
-        font-size: 1rem;
-    }
-
-    /* CRÉDITOS */
     .creditos {
-        width: auto;
+        width: 82px;
         height: 32px;
-        padding: 4px 7px;
-        font-size: 0.75rem;
+        font-size: 0.78rem;
     }
 
     #imagem_conta {
-        width: 35px;
-        height: 35px;
-        padding: 5px;
-        box-sizing: border-box;
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/* ========================================
+   CELULARES PEQUENOS
+   Até 400px
+ */
+
+@media (max-width: 400px) {
+    .header {
+        gap: 12px;
+        padding: 12px 10px;
     }
 
-    /* PESQUISA */
+    .header .logo {
+        width: 45px;
+        height: 45px;
+    }
+
+    .header .logo_txt {
+        font-size: 1.1rem;
+    }
+
     .container_pesquisa {
-        height: 38px;
+        height: 36px;
         padding: 0 10px;
     }
 
     .barra_pesquisa {
-        font-size: 0.8rem;
-    }
-
-    /* NAVEGAÇÃO */
-    .nav_buttons {
-        padding: 9px 2px;
-        font-size: 0.8rem;
-    }
-
-    /* BANNER */
-    .banner {
-        height: auto;
-        aspect-ratio: 3 / 1;
-        min-height: 150px;
-        max-height: 190px;
-        background-size: 100% 100%;
-        background-position: center;
-    }
-
-    .button_banner {
-        bottom: 8px;
-        min-width: 0;
-        max-width: 92%;
-        height: auto;
-        padding: 8px 12px;
-        gap: 6px;
         font-size: 0.75rem;
-        white-space: normal;
     }
 
-    .button_banner .material-icons {
-        font-size: 17px;
+    .nav {
+        gap: 2px;
     }
 
-    /* TÍTULOS */
-    .main h2 {
-        font-size: 1.5rem;
-        gap: 8px;
-        padding: 0 8px;
+    .nav_buttons {
+        padding: 6px;
+        font-size: 0.78rem;
     }
 
-    /* CARROSSEL DE GÊNEROS E LIVROS */
-    .scroll_genero,
-    .scroll_livros {
-        gap: 4px;
-        padding: 0 5px;
+    .container_direita {
+        gap: 10px;
     }
 
-    .items_generos {
-        gap: 18px;
+    .creditos {
+        width: 76px;
+        height: 30px;
+        font-size: 0.75rem;
     }
 
-    .img_generos {
-        width: 75px;
-        height: 75px;
+    #imagem_conta {
+        width: 37px;
+        height: 37px;
     }
-
-    .items_livros {
-        gap: 15px;
-    }
-
-    .button_display {
-        flex: 0 0 145px;
-        width: 145px;
-        padding: 10px;
-    }
-
-    .img_livros {
-        width: 120px;
-        height: 175px;
-        object-fit: cover;
-    }
-
-    /* SETAS */
-    .seta {
-        flex: 0 0 24px;
-    }
-
-    .seta img {
-        width: 24px;
-        height: 24px;
-    }
-
-    /* MENU FLUTUANTE */
-    .menu_flutuante {
-        right: 12px;
-        bottom: 12px;
-    }
-
-    /* RODAPÉ */
-    footer {
-        justify-content: center;
-        text-align: center;
-    }
-
-    .footer-links {
-        justify-content: center;
-        width: 100%;
-        margin: 0;
-    }
-}
-
-@media (max-width: 1100px) {
-    html,
-    body {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        overflow-x: clip;
-    }
-
-    .header {
-        width: 100%;
-        max-width: 100%;
-        margin: 0;
-        box-sizing: border-box;
-    }
-
-    .container_pesquisa {
-        min-width: 0;
-        margin-left: auto;
-        margin-right: auto;
-        box-sizing: border-box;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1100px) {
-    .header {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .container_pesquisa {
-        position: relative;
-        left: auto;
-        right: auto;
-        order: 2;
-        flex: 0 1 450px;
-        width: 450px;
-        max-width: 100%;
-        margin: 0 auto;
-        transform: none;
-        box-sizing: border-box;
-    }
-
-        .main {
-        width: 92%;
-        max-width: 1000px;
-        margin-left: auto;
-        margin-right: auto;
-        box-sizing: border-box;
-    }
-
-        .items_generos {
-        gap: 25px;
-    }
-
-    .img_generos {
-        width: 95px;
-        height: 95px;
-    }
-
-    /* LIVROS */
-    .items_livros {
-        gap: 50px;
-    }
-
-    .button_display {
-        flex: 0 0 150px;
-        width: 150px;
-        padding: 10px;
-    }
-
-    .img_livros {
-        width: 130px;
-        height: 190px;
-        object-fit: cover;
-    }
-}
-
-/* =========================
-   LINK DA LOGO (volta para a página inicial)
-========================= */
-
-.logo_link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
 }

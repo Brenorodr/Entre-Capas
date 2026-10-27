@@ -42,22 +42,46 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* HEADER */
-
+/* posição do cabeçalho na grade (o visual dele vem do header.css) */
 .header {
     grid-area: header;
+}
+
+/* MATERIAL ICONS */
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+
+/* =========================================================
+   HEADER / NAV — Entre Capas
+   Extraído do livro.css para usar em todas as páginas.
+   Requer: Material Icons carregado no <head> da página.
+   ========================================================= */
+
+/* ---------- BASE (desktop) ---------- */
+
+.header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
     min-height: 80px;
     padding: 12px 30px;
     background-color: #1E1E1E;
     color: white;
-    flex-wrap: wrap;
+    box-sizing: border-box;
 }
-
-/* LADO ESQUERDO */
 
 .header_esquerda {
     display: flex;
@@ -66,39 +90,40 @@ body {
     flex-shrink: 0;
 }
 
-.header_esquerda a {
+.logo_link {
     display: flex;
     align-items: center;
+    gap: 10px;
+    color: inherit;
     text-decoration: none;
+    cursor: pointer;
 }
 
-/* LOGO */
-
-.logo {
+/* escopado em .header para não mexer no logo do rodapé */
+.header .logo {
     width: 65px;
     height: 65px;
     object-fit: contain;
     flex-shrink: 0;
 }
 
-.logo_txt {
-    margin: 0 30px 0 10px;
-    font-family: 'Poppins', sans-serif !important;
+.header .logo_txt {
+    margin: 0 15px 0 0;
+    font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
     font-weight: 300;
     line-height: 1;
     color: white;
 }
 
-/* PESQUISA */
+
+/* ---------- PESQUISA ---------- */
 
 .container_pesquisa {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     align-items: center;
-    width: 430px;
+    flex: 1 1 250px;
+    max-width: 430px;
     height: 36px;
     padding: 0 10px 0 16px;
     background-color: #DCCFBE;
@@ -107,13 +132,13 @@ body {
 }
 
 .container_pesquisa:focus-within {
-    transform: translateX(-50%) scale(1.02);
+    transform: scale(1.02);
     box-shadow: 0 0 0 2px #E8622C;
 }
 
 .barra_pesquisa {
     flex: 1;
-    width: auto;
+    min-width: 0;
     height: 100%;
     padding: 0;
     background: transparent;
@@ -122,12 +147,6 @@ body {
     color: #353434;
     font-family: 'Poppins', sans-serif;
     font-size: 0.78rem;
-}
-
-.barra_pesquisa:focus {
-    outline: none;
-    box-shadow: none;
-    border: none;
 }
 
 .button_pesquisa {
@@ -145,16 +164,10 @@ body {
 .button_pesquisa .material-icons {
     color: #1E1E1E;
     font-size: 21px;
-    transition: 0.2s ease;
 }
 
-.button_pesquisa img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-}
 
-/* NAV */
+/* ---------- NAVEGAÇÃO ---------- */
 
 .nav {
     display: flex;
@@ -170,16 +183,14 @@ body {
 
 .nav_buttons {
     position: relative;
+    padding: 8px 15px;
     color: #F5F0EB;
     text-decoration: none;
-    padding: 8px 15px;
-    font-family: 'Poppins' !important;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.95rem;
     font-weight: 300;
     transition: 0.2s ease;
 }
-
-/* LINHA LARANJA */
 
 .nav_buttons::after {
     content: "";
@@ -188,8 +199,12 @@ body {
     left: 50%;
     width: 0;
     height: 2px;
-    background-color: #E8622C;
+    background: #E8622C;
     transition: 0.25s ease;
+}
+
+.nav_buttons:hover {
+    color: #E8622C;
 }
 
 .nav_buttons:hover::after {
@@ -197,71 +212,129 @@ body {
     width: 100%;
 }
 
-.nav_buttons:hover {
-    color: #E8622C;
-}
-
-/* CRÉDITOS + CONTA */
-
 .container_direita {
     display: flex;
     align-items: center;
     gap: 12px;
-    margin-left: 0;
 }
 
 .creditos {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     width: 82px;
     height: 34px;
-    margin: 0;
     padding: 4px 8px;
-    background-color: #252525;
-    color: #F5F0EB;
+    border: 1px solid #414141;
     border-radius: 20px;
-    box-shadow: none;
-    font-family: 'Poppins';
+    background: #252525;
+    color: #F5F0EB;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.8rem;
     white-space: nowrap;
-    overflow: hidden;
-    flex-shrink: 0;
 }
 
 #diamante {
-    font-size: 20px;
     margin-right: 4px;
-    max-width: 30px;
-    max-height: 30px;
     color: #E8622C;
+    font-size: 20px;
 }
 
 #imagem_conta {
+    flex-shrink: 0;
     width: 43px;
     height: 43px;
     padding: 7px;
-    box-sizing: border-box;
-    background-color: #252525;
     border-radius: 50%;
+    background: #252525;
+    object-fit: contain;
     cursor: pointer;
-    flex-shrink: 0;
 }
 
-/* MATERIAL ICONS */
 
-.material-icons {
-    font-family: 'Material Icons' !important;
-    font-weight: normal !important;
-    font-style: normal !important;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    direction: ltr;
+/* =========================================================
+   RESPONSIVIDADE DO HEADER
+   ========================================================= */
+
+/* Notebooks pequenos / tablets deitados: aperta os espaços */
+@media (max-width: 1200px) {
+
+    .header {
+        gap: 15px;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .nav_buttons {
+        padding: 8px 10px;
+    }
 }
+
+
+/* Telas médias: a pesquisa ganha uma linha só para ela */
+@media (max-width: 1050px) {
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+
+    .container_pesquisa {
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+    }
+
+    /* com a barra em largura total, o zoom do foco estourava a tela */
+    .container_pesquisa:focus-within {
+        transform: none;
+    }
+}
+
+
+/* Celulares: logo, pesquisa e menu empilhados e centralizados */
+@media (max-width: 600px) {
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .header_esquerda {
+        justify-content: center;
+    }
+
+    .header .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header .logo_txt {
+        font-size: 1.2rem;
+    }
+
+    .container_pesquisa {
+        order: 0;
+        flex: none;
+        width: 100%;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .nav_buttons {
+        padding: 7px 8px;
+        font-size: 0.85rem;
+    }
+}
+
 
 /* MAIN */
 
@@ -289,7 +362,7 @@ body {
     margin: 0 6px;
 }
 
-/*  ARTIGO */
+/* ARTIGO */
 
 article {
     width: 100%;
@@ -299,8 +372,6 @@ article {
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
 }
-
-/* TÍTULO DO ARTIGO */
 
 article > h1 {
     display: flex;
@@ -322,8 +393,6 @@ article > h1 .material-icons {
     color: #E8622C;
     font-size: 27px;
 }
-
-/* TEXTOS */
 
 article p {
     margin: 25px 0;
@@ -370,29 +439,33 @@ article p {
     line-height: 1.7;
 }
 
-/* FOOTER*/
+/* FOOTER */
 
 footer {
     grid-area: footer;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px 35px;
     background-color: #1E1E1E;
     color: white;
-    box-sizing: border-box;
-    flex-wrap: wrap;
 }
 
 footer .logo {
     width: 45px;
     height: 45px;
+    object-fit: contain;
+    flex-shrink: 0;
 }
 
 footer .logo_txt {
     margin: 0;
+    font-family: 'Poppins', sans-serif;
     font-size: 0.85rem;
+    font-weight: 300;
     line-height: 1;
+    color: white;
 }
 
 footer p {
@@ -402,8 +475,6 @@ footer p {
     font-size: 0.8rem;
     font-weight: 300;
 }
-
-/* LINKS DO FOOTER */
 
 .footer-links {
     display: flex;
@@ -427,95 +498,16 @@ footer p {
 }
 
 /* =========================
-   RESPONSIVO
+   RESPONSIVO (só conteúdo e rodapé)
 ========================= */
 
-@media (max-width: 1200px) {
-    .header {
-        gap: 15px;
-    }
-
-    .container_pesquisa {
-        width: 350px;
-    }
-
-    .nav {
-        gap: 8px;
-    }
-
-    .nav_buttons {
-        padding: 8px 10px;
-    }
-}
-
 @media (max-width: 900px) {
-    .header {
-        justify-content: center;
-        padding: 15px 20px;
-    }
-
-    .header_esquerda {
-        justify-content: center;
-    }
-
-    .container_pesquisa {
-        width: 400px;
-    }
-
-    .nav {
-        justify-content: center;
-        width: 100%;
-    }
-
     .main {
         padding-top: 30px;
     }
 }
 
 @media (max-width: 600px) {
-    .header {
-        flex-direction: column;
-        justify-content: center;
-        gap: 12px;
-    }
-
-    .header_esquerda {
-        justify-content: center;
-    }
-
-    .logo {
-        width: 50px;
-        height: 50px;
-    }
-
-    .logo_txt {
-        font-size: 1.2rem;
-        margin: 0 10px;
-    }
-
-    .container_pesquisa {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .nav {
-        flex-wrap: wrap;
-        gap: 5px;
-    }
-
-    .nav_buttons {
-        padding: 6px 8px;
-        font-size: 0.85rem;
-    }
-
-    .container_direita {
-        gap: 8px;
-    }
-
-    .creditos {
-        width: 75px;
-    }
-
     .main {
         padding: 25px 15px 40px;
     }
@@ -553,21 +545,6 @@ footer p {
 }
 
 @media (max-width: 400px) {
-    .nav_buttons {
-        font-size: 0.8rem;
-        padding: 5px 6px;
-    }
-
-    #imagem_conta {
-        width: 38px;
-        height: 38px;
-    }
-
-    .creditos {
-        width: 70px;
-        font-size: 0.75rem;
-    }
-
     article {
         padding: 20px 15px 25px;
     }
@@ -575,17 +552,4 @@ footer p {
     article > h1 {
         font-size: 0.9rem;
     }
-}
-
-/* =========================
-   LINK DA LOGO (volta para a página inicial)
-========================= */
-
-.logo_link {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    color: inherit;
-    text-decoration: none;
-    cursor: pointer;
 }
