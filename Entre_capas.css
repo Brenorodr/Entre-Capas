@@ -338,6 +338,11 @@ body {
     padding-top: 10px;
 }
 
+.items_generos a {
+    text-decoration: none;
+    font-family: 'Poppins';
+}
+
 .generos{
     border:none;
     background: none;
