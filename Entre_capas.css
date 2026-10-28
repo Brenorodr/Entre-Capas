@@ -83,26 +83,6 @@ body {
     flex-shrink: 0;
 }
 
-.container_pesquisa {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    width: 430px;
-    height: 36px;
-    padding: 0 10px 0 16px;
-    background-color: #DCCFBE;
-    border-radius: 25px;
-    transition: 0.25s ease;
-}
-
-.container_pesquisa:focus-within {
-    transform: translateX(-50%) scale(1.02);
-    box-shadow:
-        0 0 0 2px #E8622C;
-}
-
 .barra_pesquisa {
     flex: 1;
     width: auto;
