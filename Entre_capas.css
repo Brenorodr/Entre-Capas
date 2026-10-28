@@ -907,16 +907,13 @@ footer span:hover {
 
 .container_pesquisa {
     position: static;
-
     display: flex;
     align-items: center;
     flex: 1 1 250px;
-
     width: auto;
     max-width: 430px;
     min-width: 0;
     height: 36px;
-
     margin: 0;
     padding: 0 10px 0 16px;
 
@@ -929,7 +926,7 @@ footer span:hover {
 }
 
 .container_pesquisa:focus-within {
-    transform: scale(1.02);
+    transform: none;
     box-shadow: 0 0 0 2px #E8622C;
 }
 
