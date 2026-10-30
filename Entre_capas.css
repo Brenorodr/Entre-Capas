@@ -341,6 +341,7 @@ body {
 .items_generos a {
     text-decoration: none;
     font-family: 'Poppins';
+    color: #1E1E1E;
 }
 
 .generos{
