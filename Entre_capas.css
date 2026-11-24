@@ -466,20 +466,7 @@ body {
 
 }
 
-.seta{
-    background:none;
-    border: none;
-    margin: 0;
-    cursor: pointer;
-    flex-shrink: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.seta img{
-    width:120px;
-    height: 120px;
-}
+
 
 .items_generos, .items_livros {
     scrollbar-width: none; 
@@ -1345,11 +1332,6 @@ footer span:hover {
         padding-top: 8px;
     }
 
-    /* SETAS DOS CARROSSÉIS */
-    .seta {
-        display: none;
-    }
-
     /* RODAPÉ */
     footer {
         gap: 18px;
@@ -1671,4 +1653,14 @@ footer {
 
 img {
     max-width: 100%;
+}
+
+
+/* Ícone do livro na Central de Ajuda */
+.help_cabecalho .help_logo {
+    display: block;
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
 }

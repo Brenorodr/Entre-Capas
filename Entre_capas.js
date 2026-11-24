@@ -8,21 +8,6 @@ function button_acess(){
 
 document.getElementById("acess_button").addEventListener("click",button_acess);
 
-function scroll_setas(id,sentido){
-    const list=document.getElementById(id);
-    const distancia=300;
-    list.scrollLeft+=(sentido*distancia);
-    
-
-}
-
-
-document.getElementById("seta1").addEventListener("click",()=>scroll_setas("items_generos", -1));
-document.getElementById("seta2").addEventListener("click",()=>scroll_setas("items_generos", 1));
-
-document.getElementById("seta3").addEventListener("click",()=>scroll_setas("items_livros", -1));
-document.getElementById("seta4").addEventListener("click",()=>scroll_setas("items_livros", 1));
-
 /*----------------------------------------------------TAMANHO DO TEXTO------------------------------------------------------------*/
 
 let escala=100
