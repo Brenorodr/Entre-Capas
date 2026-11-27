@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@200..800&family=Graduate&family=Hind+Vadodara:wght@300;400;500;600;700&family=Montserrat:wght@100..900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Rozha+One&display=swap');
+
+/* RESET */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* VARIÁVEIS */
+
+:root {
+    --cor-fundo: #FFFCF2;
+    --cor-texto: #353434;
+    --laranja: #E8622C;
+    --escuro: #1E1E1E;
+}
+
+/* BODY */
+
+body {
+    min-height: 100vh;
+    display: grid;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows:
+        auto
+        1fr
+        auto;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* posição do cabeçalho na grade (o visual dele vem do header.css) */
+.header {
+    grid-area: header;
+}
+
+/* MATERIAL ICONS */
+
+.material-icons {
+    font-family: 'Material Icons' !important;
+    font-weight: normal !important;
+    font-style: normal !important;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    direction: ltr;
+}
+
+
+/* =========================================================
+   HEADER / NAV — Entre Capas
+   Extraído do livro.css para usar em todas as páginas.
+   Requer: Material Icons carregado no <head> da página.
+   ========================================================= */
+
+/* ---------- BASE (desktop) ---------- */
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    min-height: 80px;
+    padding: 12px 30px;
+    background-color: #1E1E1E;
+    color: white;
+    box-sizing: border-box;
+}
+
+.header_esquerda {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.logo_link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* escopado em .header para não mexer no logo do rodapé */
+.header .logo {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.header .logo_txt {
+    margin: 0 15px 0 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1;
+    color: white;
+}
+
+
+/* ---------- PESQUISA ---------- */
+
+.container_pesquisa {
+    display: flex;
+    align-items: center;
+    flex: 1 1 250px;
+    max-width: 430px;
+    height: 36px;
+    padding: 0 10px 0 16px;
+    background-color: #DCCFBE;
+    border-radius: 25px;
+    transition: 0.25s ease;
+}
+
+.container_pesquisa:focus-within {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 2px #E8622C;
+}
+
+.barra_pesquisa {
+    flex: 1;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #353434;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.78rem;
+}
+
+.button_pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.button_pesquisa .material-icons {
+    color: #1E1E1E;
+    font-size: 21px;
+}
+
+
+/* ---------- NAVEGAÇÃO ---------- */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #F5F0EB;
+}
+
+.nav_buttons {
+    position: relative;
+    padding: 8px 15px;
+    color: #F5F0EB;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    transition: 0.2s ease;
+}
+
+.nav_buttons::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #E8622C;
+    transition: 0.25s ease;
+}
+
+.nav_buttons:hover {
+    color: #E8622C;
+}
+
+.nav_buttons:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+.container_direita {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.creditos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 82px;
+    height: 34px;
+    padding: 4px 8px;
+    border: 1px solid #414141;
+    border-radius: 20px;
+    background: #252525;
+    color: #F5F0EB;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+#diamante {
+    margin-right: 4px;
+    color: #E8622C;
+    font-size: 20px;
+}
+
+#imagem_conta {
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    padding: 7px;
+    border-radius: 50%;
+    background: #252525;
+    object-fit: contain;
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE DO HEADER
+   ========================================================= */
+
+/* Notebooks pequenos / tablets deitados: aperta os espaços */
+@media (max-width: 1200px) {
+
+    .header {
+        gap: 15px;
+    }
+
+    .nav {
+        gap: 8px;
+    }
+
+    .nav_buttons {
+        padding: 8px 10px;
+    }
+}
+
+
+/* Telas médias: a pesquisa ganha uma linha só para ela */
+@media (max-width: 1050px) {
+
+    .header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 15px 20px;
+    }
+
+    .container_pesquisa {
+        order: 3;
+        flex-basis: 100%;
+        max-width: none;
+    }
+
+    /* com a barra em largura total, o zoom do foco estourava a tela */
+    .container_pesquisa:focus-within {
+        transform: none;
+    }
+}
+
+
+/* Celulares: logo, pesquisa e menu empilhados e centralizados */
+@media (max-width: 600px) {
+
+    .header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .header_esquerda {
+        justify-content: center;
+    }
+
+    .header .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .header .logo_txt {
+        font-size: 1.2rem;
+    }
+
+    .container_pesquisa {
+        order: 0;
+        flex: none;
+        width: 100%;
+    }
+
+    .nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 4px;
+    }
+
+    .nav_buttons {
+        padding: 7px 8px;
+        font-size: 0.85rem;
+    }
+}
+
+
+/* MAIN */
+
+.main {
+    grid-area: main;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* CAMINHO */
+
+.main > h1:first-child {
+    margin: 0 0 25px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: #666;
+}
+
+.main > h1:first-child span {
+    color: #E8622C;
+    margin: 0 6px;
+}
+
+/* ARTIGO */
+
+article {
+    width: 100%;
+    padding: 35px 40px 40px;
+    background-color: white;
+    border: 1px solid #DED4C7;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+article > h1 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 0;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #E8622C;
+    font-family: 'Graduate', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: #353434;
+    text-align: center;
+}
+
+article > h1 .material-icons {
+    color: #E8622C;
+    font-size: 27px;
+}
+
+article p {
+    margin: 25px 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: #555;
+    text-align: left;
+}
+
+/* CAIXA DE EXEMPLO */
+
+.exemplo {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    margin: 25px 0;
+    padding: 15px 20px;
+    background-color: #F3EEE8;
+    border-left: 3px solid #E8622C;
+    border-radius: 8px;
+}
+
+.exemplo > .material-icons {
+    color: #E8622C;
+    font-size: 24px;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.exemplo strong {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #353434;
+}
+
+.exemplo p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+footer {
+    grid-area: footer;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px 35px;
+    background-color: #1E1E1E;
+    color: white;
+}
+
+footer .logo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+footer .logo_txt {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    line-height: 1;
+    color: white;
+}
+
+footer p {
+    margin: 0;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: auto;
+    margin-right: 80px;
+}
+
+.footer-links span {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.footer-links span:hover {
+    color: #E8622C;
+}
+
+/* =========================
+   RESPONSIVO (só conteúdo e rodapé)
+========================= */
+
+@media (max-width: 900px) {
+    .main {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .main {
+        padding: 25px 15px 40px;
+    }
+
+    article {
+        padding: 25px 20px 30px;
+    }
+
+    article > h1 {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    article p {
+        font-size: 0.85rem;
+        line-height: 1.7;
+    }
+
+    .exemplo {
+        padding: 12px 15px;
+    }
+
+    footer {
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .footer-links {
+        width: 100%;
+        justify-content: center;
+        margin: 10px 0 0;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    article {
+        padding: 20px 15px 25px;
+    }
+
+    article > h1 {
+        font-size: 0.9rem;
+    }
+}

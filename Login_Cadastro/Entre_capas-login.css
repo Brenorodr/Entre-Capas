@@ -1,0 +1,26 @@
+/* Ajustes só da tela de login.
+   Carregue DEPOIS de Entre_capas-cadastro.css, que traz o layout e as cores. */
+
+.cartao {
+    max-width: 520px;
+}
+
+#formulario {
+    grid-template-columns: 1fr;
+}
+
+#saida_login {
+    grid-column: 1 / -1;
+    margin: 0;
+    color: var(--erro);
+    font-weight: 500;
+    text-align: center;
+}
+
+#saida_login:empty {
+    display: none;
+}
+
+#saida_login.ok {
+    color: var(--sucesso);
+}

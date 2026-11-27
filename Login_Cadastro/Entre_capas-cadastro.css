@@ -1,0 +1,445 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Rozha+One&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --cor-fundo: #FFFCF2;
+    --cor-texto: #353434;
+    --laranja: #E8622C;
+    --laranja-escuro: #CF5120;
+    --preto: #1E1E1E;
+    --bege: #E9CFAE;
+    --borda: #ECD5C2;
+    --erro: #C0392B;
+    --sucesso: #2E7D32;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+    min-height: 100vh;
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: 'Poppins', sans-serif;
+}
+
+.pagina {
+    display: grid;
+    grid-template-columns: minmax(300px, 1fr) 2.7fr;
+    gap: 16px;
+    max-width: 1360px;
+    min-height: calc(100vh - 48px);
+    margin: 0 auto;
+}
+
+
+/* ---------- PAINEL ESQUERDO ---------- */
+
+.lateral {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background-color: var(--preto);
+    border-radius: 24px;
+    color: white;
+}
+
+.lateral_topo {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 56px 40px 0;
+}
+
+.logo_link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.logo {
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.logo_txt {
+    margin: 0;
+    font-family: 'Rozha One', serif;
+    font-size: 2.1rem;
+    line-height: 0.95;
+}
+
+.logo_txt span {
+    color: var(--laranja);
+}
+
+.traco {
+    width: 76px;
+    height: 3px;
+    margin: 44px 0 40px;
+    background-color: var(--laranja);
+    border-radius: 2px;
+}
+
+.lateral h2 {
+    margin: 0;
+    font-family: 'Rozha One', serif;
+    font-size: 2.6rem;
+    font-weight: 400;
+    line-height: 1.1;
+}
+
+.lateral h2 span {
+    display: block;
+    color: var(--laranja);
+}
+
+.lateral_frase {
+    margin: 24px 0 36px;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: #F5F0EB;
+}
+
+.button_entrar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 44px;
+    border: 2px solid var(--laranja);
+    border-radius: 999px;
+    color: var(--laranja);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.2s ease;
+}
+
+.button_entrar:hover,
+.button_entrar:focus-visible {
+    background-color: var(--laranja);
+    color: white;
+}
+
+.estante {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 230px;
+    margin-top: 40px;
+}
+
+.livro {
+    position: relative;
+    flex: 1;
+    border-radius: 3px 3px 0 0;
+}
+
+.livro::before,
+.livro::after {
+    content: "";
+    position: absolute;
+    left: 18%;
+    right: 18%;
+    top: 10%;
+    height: 3px;
+    border-radius: 2px;
+    background-color: rgba(233, 207, 174, 0.75);
+}
+
+.livro::after {
+    top: calc(10% + 12px);
+    opacity: 0.7;
+}
+
+.livro:nth-child(1) { height: 64%;  background-color: #2A2A2A; }
+.livro:nth-child(2) { height: 55%;  background-color: var(--bege); }
+.livro:nth-child(3) { height: 100%; background-color: #E0531C; }
+.livro:nth-child(4) { height: 46%;  background-color: #F3E3CB; }
+.livro:nth-child(5) { height: 72%;  background-color: #1F1F1F; }
+.livro:nth-child(6) { height: 86%;  background-color: #E8581A; }
+.livro:nth-child(7) { height: 64%;  background-color: var(--bege); }
+.livro:nth-child(8) { height: 58%;  background-color: #222222; }
+.livro:nth-child(9) { height: 44%;  background-color: var(--laranja); }
+
+.livro:nth-child(2)::before, .livro:nth-child(2)::after,
+.livro:nth-child(7)::before, .livro:nth-child(7)::after {
+    background-color: #3A332B;
+}
+
+.livro:nth-child(4)::before, .livro:nth-child(4)::after {
+    display: none;
+}
+
+.livro:nth-child(5)::before, .livro:nth-child(5)::after {
+    background-color: #6B5F50;
+}
+
+.livro svg {
+    position: absolute;
+    left: 50%;
+    bottom: 14%;
+    width: 70%;
+    transform: translateX(-50%);
+    opacity: 0.8;
+}
+
+
+/* ---------- PAINEL DO FORMULÁRIO ---------- */
+
+.principal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 40px;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--borda);
+    border-radius: 24px;
+}
+
+.cartao {
+    width: 100%;
+    max-width: 880px;
+}
+
+.cartao h1 {
+    margin: 0;
+    font-family: 'Rozha One', serif;
+    font-size: 3.3rem;
+    font-weight: 400;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.subtitulo {
+    margin: 14px 0 44px;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px 44px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.campo label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+}
+
+.entrada {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    height: 64px;
+    padding: 0 22px;
+    background-color: white;
+    border: 1.5px solid var(--borda);
+    border-radius: 14px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.entrada .material-icons {
+    flex-shrink: 0;
+    color: var(--cor-texto);
+    font-size: 24px;
+}
+
+.entrada input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--cor-texto);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.entrada input::placeholder {
+    color: #7A746E;
+}
+
+.entrada:focus-within {
+    border-color: var(--laranja);
+    box-shadow: 0 0 0 4px rgba(232, 98, 44, 0.15);
+}
+
+.campo.invalido .entrada {
+    border-color: var(--erro);
+}
+
+.erro {
+    font-size: 0.82rem;
+    color: var(--erro);
+}
+
+.ver_senha {
+    display: flex;
+    padding: 4px;
+    background: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.ver_senha .material-icons {
+    color: #555555;
+}
+
+.ver_senha:hover .material-icons {
+    color: #888888;
+}
+
+.ver_senha:focus-visible {
+    outline: 2px solid var(--laranja);
+}
+
+.button_criar {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    height: 68px;
+    margin-top: 8px;
+    background-color: var(--laranja);
+    border: none;
+    border-radius: 14px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.button_criar:hover {
+    background-color: var(--laranja-escuro);
+}
+
+.button_criar:active {
+    transform: translateY(1px);
+}
+
+.button_criar:focus-visible {
+    outline: 3px solid var(--preto);
+    outline-offset: 3px;
+}
+
+.nota,
+#saida_cadastro,
+.ja_conta {
+    grid-column: 1 / -1;
+    margin: 0;
+    text-align: center;
+}
+
+.nota {
+    margin-top: 4px;
+}
+
+#saida_cadastro {
+    color: var(--sucesso);
+    font-weight: 500;
+}
+
+#saida_cadastro:empty {
+    display: none;
+}
+
+.ja_conta {
+    font-size: 1.1rem;
+}
+
+.ja_conta a {
+    padding-bottom: 1px;
+    border-bottom: 2px solid var(--laranja);
+    color: var(--laranja);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.ja_conta a:hover {
+    border-color: var(--laranja-escuro);
+    color: var(--laranja-escuro);
+}
+
+
+/* ---------- RESPONSIVIDADE ---------- */
+
+@media (max-width: 1000px) {
+
+    .pagina {
+        grid-template-columns: 1fr;
+        min-height: 0;
+    }
+
+    .lateral_topo {
+        padding: 36px 28px 0;
+    }
+
+    .lateral h2 {
+        font-size: 2.1rem;
+    }
+
+    .traco {
+        margin: 28px 0;
+    }
+
+    .lateral_frase {
+        margin: 16px 0 24px;
+    }
+
+    .estante {
+        height: 130px;
+        margin-top: 28px;
+    }
+}
+
+@media (max-width: 680px) {
+
+    body {
+        padding: 12px;
+    }
+
+    #formulario {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .principal {
+        padding: 32px 20px;
+    }
+
+    .cartao h1 {
+        font-size: 2.3rem;
+    }
+
+    .subtitulo {
+        margin-bottom: 28px;
+        font-size: 1.05rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}

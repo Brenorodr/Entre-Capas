@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../IMG/logo-entre-capas.png">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="Entre_capas-cadastro.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+
+<body>
+
+    <main class="pagina">
+
+        <!-- PAINEL ESQUERDO -->
+
+        <aside class="lateral">
+
+            <div class="lateral_topo">
+
+                <a href="../index.html" class="logo_link" title="Página inicial">
+                    <img
+                        src="../IMG/logo-entre-capas.png"
+                        alt="Logomarca Entre Capas"
+                        class="logo"
+                    >
+                </a>
+
+                <div class="traco"></div>
+
+                <h2>Bem-vindo ao <span>Entre Capas</span></h2>
+
+                <p class="lateral_frase">Troque histórias. Descubra novos mundos.</p>
+
+                <a href="Entre_capas-login.html" class="button_entrar">
+                    Entrar
+                    <span class="material-icons">arrow_forward</span>
+                </a>
+
+            </div>
+
+            <div class="estante" aria-hidden="true">
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro">
+                    <svg viewBox="0 0 40 80" fill="none" stroke="#b8925f" stroke-width="1.5"><path d="M20 78V30M20 30c-8-2-12-9-12-16 8 1 12 8 12 16zM20 30c8-2 12-9 12-16-8 1-12 8-12 16zM20 52c-7-1-10-7-10-13 7 1 10 6 10 13zM20 52c7-1 10-7 10-13-7 1-10 6-10 13z"/></svg>
+                </div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+                <div class="livro"></div>
+            </div>
+
+        </aside>
+
+
+        <!-- FORMULÁRIO -->
+
+        <section class="principal">
+
+            <div class="cartao">
+
+                <h1>Crie sua conta</h1>
+                <p class="subtitulo">Faça parte da nossa comunidade de leitores.</p>
+
+                <form id="formulario" novalidate>
+
+                    <div class="campo">
+                        <label for="nome">Nome completo *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">person_outline</span>
+                            <input id="nome" type="text" placeholder="Digite seu nome completo" autocomplete="name" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="email">E-mail *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">mail_outline</span>
+                            <input id="email" type="email" placeholder="exemplo@email.com" autocomplete="email" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="telefone">Telefone *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">phone</span>
+                            <input id="telefone" type="tel" inputmode="numeric" placeholder="(00) 0000-0000" autocomplete="tel" maxlength="15" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cpf">CPF *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">badge</span>
+                            <input id="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" maxlength="14" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="nascimento">Data de nascimento *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">calendar_today</span>
+                            <input id="nascimento" type="text" inputmode="numeric" placeholder="dd/mm/aaaa" autocomplete="bday" maxlength="10" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="cep">CEP *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">location_on</span>
+                            <input id="cep" type="text" inputmode="numeric" placeholder="00000-000" autocomplete="postal-code" maxlength="9" required>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="senha">Senha *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">lock_outline</span>
+                            <input id="senha" type="password" placeholder="Digite sua senha" autocomplete="new-password" maxlength="15" required title="De 8 a 15 caracteres, com 1 maiúscula, 1 minúscula, 1 número e 1 símbolo (ex: @, #, $, _)">
+                            <button type="button" class="ver_senha" data-alvo="senha" aria-label="Mostrar senha">
+                                <span class="material-icons" aria-hidden="true">visibility_off</span>
+                            </button>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <div class="campo">
+                        <label for="confirmar">Confirmar senha *</label>
+                        <div class="entrada">
+                            <span class="material-icons" aria-hidden="true">lock_outline</span>
+                            <input id="confirmar" type="password" placeholder="Repita a senha" autocomplete="new-password" maxlength="15" required>
+                            <button type="button" class="ver_senha" data-alvo="confirmar" aria-label="Mostrar senha">
+                                <span class="material-icons" aria-hidden="true">visibility_off</span>
+                            </button>
+                        </div>
+                        <span class="erro" aria-live="polite"></span>
+                    </div>
+
+                    <button type="submit" class="button_criar">
+                        Criar conta
+                        <span class="material-icons" aria-hidden="true">arrow_forward</span>
+                    </button>
+
+                    <p class="nota">Ao criar sua conta, você poderá participar das trocas solidárias.</p>
+
+                    <p id="saida_cadastro" role="status"></p>
+
+                    <p class="ja_conta">Já tem uma conta? <a href="Entre_capas-login.html">Entrar</a></p>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="Entre_capas-cadastro.js"></script>
+
+</body>
+
+</html>
